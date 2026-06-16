@@ -8,14 +8,23 @@
 <meta name="theme-color" content="#111827">
 <title>Hybrid Athlete 16-Wochen-Plan</title>
 <style>
-*{box-sizing:border-box} body{margin:0;padding:14px 14px 32px;background:#f3f4f6;color:#111827;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif} header{position:sticky;top:0;background:rgba(243,244,246,.95);backdrop-filter:blur(10px);z-index:2;padding:12px 0;border-bottom:1px solid #e5e7eb} h1{font-size:25px;margin:0 0 4px} h2{font-size:20px;margin:0 0 10px} h3{font-size:16px;margin:16px 0 8px} p{line-height:1.45} .card{background:white;border-radius:18px;padding:16px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.06)} .small{font-size:13px;color:#6b7280} .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px} .stat{background:#f9fafb;border:1px solid #e5e7eb;border-radius:14px;padding:12px} .stat b{font-size:22px;display:block} select,input,textarea,button{font:inherit;border-radius:12px;border:1px solid #d1d5db;padding:10px;background:white} select{width:100%;font-size:18px} button{background:#111827;color:white;font-weight:700;border:0;margin:2px 0} button.secondary{background:#e5e7eb;color:#111827} button.blue{background:#2563eb} button.red{background:#dc2626} .tabs{display:flex;gap:8px;overflow:auto;padding:10px 0} .tab{white-space:nowrap;border:1px solid #d1d5db;background:white;color:#111827;border-radius:999px;padding:9px 12px} .tab.active{background:#111827;color:white} .badge{display:inline-block;padding:4px 8px;border-radius:999px;background:#eef2ff;color:#3730a3;font-size:12px;margin-bottom:5px} .row{display:flex;align-items:center;justify-content:space-between;gap:10px} .checkbox{width:25px;height:25px} .day.done{background:#f0fdf4;border-color:#86efac} .exercise{display:grid;grid-template-columns:1.35fr .7fr 1fr;gap:7px;border-bottom:1px solid #e5e7eb;padding:10px 0;font-size:14px} .exercise:last-child{border-bottom:none} .exercise input{width:100%;padding:8px} .note{width:100%;min-height:82px;margin-top:8px} .progress{height:12px;background:#e5e7eb;border-radius:999px;overflow:hidden} .progress div{height:100%;width:0%;background:#16a34a} .warning{background:#fffbeb;border:1px solid #fde68a} .backup{background:#eff6ff;border:1px solid #bfdbfe} .footer{text-align:center;color:#6b7280;font-size:12px;margin:22px 0} @media(min-width:800px){body{max-width:900px;margin:auto}.grid{grid-template-columns:repeat(4,1fr)}}
+*{box-sizing:border-box} body{margin:0;padding:14px 14px 32px;background:#f3f4f6;color:#111827;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif} header{position:sticky;top:0;background:rgba(243,244,246,.95);backdrop-filter:blur(10px);z-index:2;padding:12px 0;border-bottom:1px solid #e5e7eb} h1{font-size:25px;margin:0 0 4px} h2{font-size:20px;margin:0 0 10px} h3{font-size:16px;margin:16px 0 8px} p{line-height:1.45} .card{background:white;border-radius:18px;padding:16px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.06)} .small{font-size:13px;color:#6b7280} .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px} .stat{background:#f9fafb;border:1px solid #e5e7eb;border-radius:14px;padding:12px} .stat b{font-size:22px;display:block} select,input,textarea,button{font:inherit;border-radius:12px;border:1px solid #d1d5db;padding:10px;background:white} select{width:100%;font-size:18px} button{background:#111827;color:white;font-weight:700;border:0;margin:2px 0} button.secondary{background:#e5e7eb;color:#111827} button.blue{background:#2563eb} button.red{background:#dc2626} button.warn{background:#f59e0b;color:#111827} .tabs{display:flex;gap:8px;overflow:auto;padding:10px 0} .tab{white-space:nowrap;border:1px solid #d1d5db;background:white;color:#111827;border-radius:999px;padding:9px 12px} .tab.active{background:#111827;color:white} .badge{display:inline-block;padding:4px 8px;border-radius:999px;background:#eef2ff;color:#3730a3;font-size:12px;margin-bottom:5px} .row{display:flex;align-items:center;justify-content:space-between;gap:10px} .checkbox{width:25px;height:25px} .day.done{background:#f0fdf4;border-color:#86efac} .day.missed{background:#fff7ed;border-color:#fdba74} .exercise{display:grid;grid-template-columns:1.25fr .65fr 1fr;gap:7px;border-bottom:1px solid #e5e7eb;padding:10px 0;font-size:14px} .exercise:last-child{border-bottom:none} .exercise input{width:100%;padding:8px;margin-top:4px} .note{width:100%;min-height:82px;margin-top:8px} .progress{height:12px;background:#e5e7eb;border-radius:999px;overflow:hidden} .progress div{height:100%;width:0%;background:#16a34a} .warning{background:#fffbeb;border:1px solid #fde68a} .backup{background:#eff6ff;border:1px solid #bfdbfe} .recommendation{background:#ecfdf5;border:1px solid #86efac;white-space:pre-line} .amber{background:#fffbeb;border:1px solid #fde68a} .redbox{background:#fef2f2;border:1px solid #fecaca} .table{width:100%;border-collapse:collapse;font-size:14px} .table th,.table td{border-bottom:1px solid #e5e7eb;padding:8px;text-align:left} .mini-bar{height:8px;background:#e5e7eb;border-radius:999px;overflow:hidden} .mini-bar div{height:100%;background:#2563eb} .footer{text-align:center;color:#6b7280;font-size:12px;margin:22px 0} @media(min-width:800px){body{max-width:940px;margin:auto}.grid{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
-<header><h1>Hybrid Athlete Plan</h1><div class="small">Martin · 16 Wochen · FTP 253 W → 270–275 W</div></header>
-<div class="card"><div class="grid"><div class="stat"><span class="small">Woche</span><b id="statWeek">1/16</b></div><div class="stat"><span class="small">FTP</span><b>253 W</b></div><div class="stat"><span class="small">Ziel</span><b>270–275</b></div><div class="stat"><span class="small">Erledigt</span><b id="statDone">0%</b></div></div><h3>Fortschritt</h3><div class="progress"><div id="progressBar"></div></div></div>
+<header><h1>Hybrid Athlete Plan</h1><div class="small">Martin · 16 Wochen · FTP 253 W → 270–275 W · v3.0</div></header>
+
+<div class="card"><div class="grid"><div class="stat"><span class="small">Woche</span><b id="statWeek">1/16</b></div><div class="stat"><span class="small">FTP</span><b id="statFtp">253 W</b></div><div class="stat"><span class="small">W/kg</span><b id="statWkg">–</b></div><div class="stat"><span class="small">Erledigt</span><b id="statDone">0%</b></div></div><h3>Fortschritt</h3><div class="progress"><div id="progressBar"></div></div></div>
+
+<div class="card" id="trafficCard"><h2>Wochenampel</h2><p id="trafficLight">Noch keine Bewertung.</p></div>
+<div class="card recommendation"><h2>Plan-Anpassung</h2><div id="adaptiveAdvice">Trage Readiness ein oder markiere ein Training als verpasst, dann erscheint hier eine Empfehlung.</div></div>
+
+<div class="card"><h2>FTP & Gewicht</h2><div class="grid"><label>Datum<input id="metricDate" type="date"></label><label>FTP<input id="metricFtp" type="number" placeholder="253"></label><label>Gewicht kg<input id="metricWeight" type="number" step="0.1" placeholder="76.0"></label><label>&nbsp;<button id="addMetricBtn" type="button">Eintrag speichern</button></label></div><div id="metricsTable"></div></div>
+
 <div class="card backup"><h2>Backup</h2><p>Die App speichert lokal im Browser. Für Sicherung: <b>Backup exportieren</b> antippen und JSON-Datei speichern. Über <b>Backup importieren</b> wiederherstellen.</p><button class="blue" id="exportBtn" type="button">Backup exportieren</button> <button class="secondary" id="importBtn" type="button">Backup importieren</button><input id="importFile" type="file" accept=".json,application/json" style="display:none"><p class="small" id="backupStatus">Noch kein Backup exportiert.</p></div>
+
 <div class="card warning"><h2>Garmin-Steuerung</h2><p><b>Trainingsbereitschaft &lt; 40:</b> VO2/Schwelle durch lockere Zone-2-Einheit ersetzen.</p><p><b>HRV 3 Tage deutlich reduziert:</b> eine harte Einheit streichen.</p><p><b>Priorität:</b> Dienstag & Donnerstag Radqualität. Danach Kraft A/B. Samstag ist optional.</p></div>
+
 <div class="card"><label class="small" for="weekSelect">Woche auswählen</label><select id="weekSelect"><option value="1">Woche 1 – Foundation</option>
 <option value="2">Woche 2 – Foundation</option>
 <option value="3">Woche 3 – Foundation</option>
@@ -33,8 +42,11 @@
 <option value="15">Woche 15 – Performance</option>
 <option value="16">Woche 16 – Test</option></select><div class="tabs" id="dayTabs"></div></div>
 <div id="weekContent"></div>
-<div class="card"><h2>Wochen-Check-in</h2><div class="grid"><label>HRV/Readiness<input id="readiness" placeholder="z.B. 65"></label><label>Schlaf<input id="sleep" placeholder="z.B. gut"></label><label>Gewicht<input id="weight" placeholder="optional"></label><label>RPE Woche<input id="rpe" placeholder="1–10"></label></div><textarea class="note" id="weekNote" placeholder="Notizen zur Woche, Müdigkeit, Gewichte, Anpassungen..."></textarea><p><button id="saveMetaBtn" type="button">Speichern</button> <button class="secondary" id="resetWeekBtn" type="button">Woche zurücksetzen</button> <button class="red" id="clearBtn" type="button">Alle Daten löschen</button></p></div>
-<div class="footer">Version 1.0 · GitHub Pages Single File · Keine externen Abhängigkeiten</div>
+
+<div class="card"><h2>Wochen-Check-in</h2><div class="grid"><label>HRV/Readiness<input id="readiness" placeholder="z.B. 65"></label><label>Schlaf<input id="sleep" placeholder="z.B. gut/mittel/schlecht"></label><label>Stress<input id="stress" placeholder="niedrig/mittel/hoch"></label><label>RPE Woche<input id="rpe" placeholder="1–10"></label></div><textarea class="note" id="weekNote" placeholder="Notizen zur Woche, Müdigkeit, Gewichte, Anpassungen..."></textarea><p><button id="saveMetaBtn" type="button">Speichern</button> <button class="secondary" id="resetWeekBtn" type="button">Woche zurücksetzen</button> <button class="red" id="clearBtn" type="button">Alle Daten löschen</button></p><div id="weeklyReview"></div></div>
+
+<div class="footer">Version 3.0 · Wochenampel · Kraft-Progression · FTP/Gewicht · Wochenreview · Keine externen Abhängigkeiten</div>
+
 <script>
 var PLAN = [
   {
@@ -46,6 +58,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -53,56 +68,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -110,12 +133,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "3×10 min @95–100% FTP (240–253 W), 5 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -123,63 +152,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -187,12 +225,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "5×4 min @110% FTP (278 W), 3 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning A – Stabilität & Balance + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3 Runden ohne Zeitdruck",
@@ -209,13 +253,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "90–120 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -228,6 +278,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -235,56 +288,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -292,12 +353,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "4×8 min @95–100% FTP (240–253 W), 4–5 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -305,63 +372,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -369,12 +445,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "6×3 min @115% FTP (291 W), 3 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning B – Athletik & Explosivität + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3–4 Runden ohne Zeitdruck",
@@ -391,13 +473,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "90–120 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -410,6 +498,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -417,56 +508,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -474,12 +573,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "3×12 min @95–100% FTP (240–253 W), 5 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -487,63 +592,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -551,12 +665,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "5×5 min @108% FTP (273 W), 4 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning C – HYROX Light + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3 Runden, nicht auf Zeit",
@@ -573,13 +693,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "90–120 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -592,6 +718,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -599,56 +728,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -656,12 +793,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "2×15 min @95–100% FTP (240–253 W), 6 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -669,63 +812,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -733,12 +885,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "3×10 min Over/Under: 1 min @105% (266 W) + 1 min @95% (240 W), 5 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning A – Stabilität & Balance + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3 Runden ohne Zeitdruck",
@@ -755,13 +913,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "90–120 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -774,6 +938,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -781,56 +948,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -838,12 +1013,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "60 min Zone 2, sehr locker, keine Intervalle. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -851,63 +1032,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -915,12 +1105,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "45–60 min locker, 3×10 s Technik-Antritte optional. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning B – Athletik & Explosivität + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3–4 Runden ohne Zeitdruck",
@@ -937,13 +1133,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "60–90 min locker Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -956,6 +1158,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -963,56 +1168,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -1020,12 +1233,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "4×10 min @95–100% FTP (240–253 W), 5 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -1033,63 +1252,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -1097,12 +1325,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "4×10 min Over/Under: 1 min @105% (266 W) + 1 min @95% (240 W), 5 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning C – HYROX Light + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3 Runden, nicht auf Zeit",
@@ -1119,13 +1353,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "120–150 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -1138,6 +1378,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -1145,56 +1388,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -1202,12 +1453,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "3×15 min @95–100% FTP (240–253 W), 6 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -1215,63 +1472,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -1279,12 +1545,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "5×4 min @110% FTP (278 W), 3 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning A – Stabilität & Balance + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3 Runden ohne Zeitdruck",
@@ -1301,13 +1573,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "120–150 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -1320,6 +1598,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -1327,56 +1608,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -1384,12 +1673,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "2×20 min @95–100% FTP (240–253 W), 8 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -1397,63 +1692,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -1461,12 +1765,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "5×5 min @108% FTP (273 W), 4 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning B – Athletik & Explosivität + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3–4 Runden ohne Zeitdruck",
@@ -1483,13 +1793,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "120–150 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -1502,6 +1818,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -1509,56 +1828,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -1566,12 +1893,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "3×15 min @97–100% FTP (245–253 W), 6 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -1579,63 +1912,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -1643,12 +1985,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "4×12 min Over/Under: 2 min @105% (266 W) + 2 min @95% (240 W), 6 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning C – HYROX Light + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3 Runden, nicht auf Zeit",
@@ -1665,13 +2013,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "120–150 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -1684,6 +2038,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -1691,56 +2048,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -1748,12 +2113,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "60 min Zone 2, hohe Kadenz, locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -1761,63 +2132,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -1825,12 +2205,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "45 min locker, keine harten Reize. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning A – Stabilität & Balance + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3 Runden ohne Zeitdruck",
@@ -1847,13 +2233,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "60–90 min locker Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -1866,6 +2258,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -1873,56 +2268,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -1930,12 +2333,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "2×20 min @98–100% FTP (248–253 W), 8 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -1943,63 +2352,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -2007,12 +2425,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "5×5 min @108% FTP (273 W), 4 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning B – Athletik & Explosivität + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3–4 Runden ohne Zeitdruck",
@@ -2029,13 +2453,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "150–180 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -2048,6 +2478,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -2055,56 +2488,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -2112,12 +2553,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "3×15 min @98–100% FTP (248–253 W), 6 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -2125,63 +2572,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -2189,12 +2645,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "4×10 min Over/Under: 2 min @105% (266 W) + 2 min @95% (240 W), 5–6 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning C – HYROX Light + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3 Runden, nicht auf Zeit",
@@ -2211,13 +2673,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "150–180 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -2230,6 +2698,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -2237,56 +2708,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -2294,12 +2773,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "2×20 min @100% FTP (253 W), 8 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -2307,63 +2792,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -2371,12 +2865,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "5×4 min @110% FTP (278 W), 3 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning A – Stabilität & Balance + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3 Runden ohne Zeitdruck",
@@ -2393,13 +2893,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "150–180 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -2412,6 +2918,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -2419,56 +2928,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -2476,12 +2993,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "3×18 min @95–100% FTP (240–253 W), 7 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -2489,63 +3012,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -2553,12 +3085,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "4×12 min Over/Under: 2 min @105% (266 W) + 2 min @95% (240 W), 6 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning B – Athletik & Explosivität + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3–4 Runden ohne Zeitdruck",
@@ -2575,13 +3113,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "150–180 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -2594,6 +3138,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -2601,56 +3148,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -2658,12 +3213,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "2×25 min @95–98% FTP (240–248 W), 8 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -2671,63 +3232,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -2735,12 +3305,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "5×5 min @108% FTP (273 W), 4 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning C – HYROX Light + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3 Runden, nicht auf Zeit",
@@ -2757,13 +3333,19 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "150–180 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   },
@@ -2776,6 +3358,9 @@ var PLAN = [
         "day": "Montag",
         "type": "Kraft + Lauf",
         "title": "Ganzkörper A + lockerer Lauf",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper A mit Quadrizeps-Fokus. Danach oder getrennt 5–8 km locker mit Hund, HF ca. 130–145.",
         "exercises": [
           {
@@ -2783,56 +3368,64 @@ var PLAN = [
             "sets": "4",
             "reps": "5–6",
             "target": "RPE 7–8",
-            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat."
+            "notes": "Quadrizeps-Fokus. Saubere Tiefe, explosiv hoch. Alternative: Front Squat.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben stehend",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Oben 1 Sekunde halten, langsam absenken."
+            "notes": "Oben 1 Sekunde halten, langsam absenken.",
+            "progression": "isolation"
           },
           {
             "name": "Bankdrücken",
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Klimmzüge",
             "sets": "4",
             "reps": "6–8",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "bodyweight"
           },
           {
             "name": "Schulterdrücken",
             "sets": "3",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Langhantel oder Kurzhanteln."
+            "notes": "Langhantel oder Kurzhanteln.",
+            "progression": "upper"
           },
           {
             "name": "Kurzhantel-Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps, kein Schwung."
+            "notes": "Bizeps, kein Schwung.",
+            "progression": "isolation"
           },
           {
             "name": "Ring Dips",
             "sets": "3",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups."
+            "notes": "Trizeps-Fokus. Alternative: enges Bankdrücken oder enge Push-ups.",
+            "progression": "bodyweight"
           },
           {
             "name": "Ab Wheel / Plank",
             "sets": "3",
             "reps": "8–12 / 45–60 s",
             "target": "Core",
-            "notes": "Rumpf stabil halten, kein Hohlkreuz."
+            "notes": "Rumpf stabil halten, kein Hohlkreuz.",
+            "progression": "core"
           }
         ]
       },
@@ -2840,12 +3433,18 @@ var PLAN = [
         "day": "Dienstag",
         "type": "Rad",
         "title": "FTP / Schwelle",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "FTP-Test oder 20-min-Test: gut aufwärmen, 20 min maximal kontrolliert. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
         "type": "Kraft",
         "title": "Ganzkörper B + Mobility",
+        "priority": 2,
+        "hard": false,
+        "key": false,
         "details": "Ganzkörper B mit Beinbeuger-/Gluteus-Fokus. Danach 10 min Mobility.",
         "exercises": [
           {
@@ -2853,63 +3452,72 @@ var PLAN = [
             "sets": "4",
             "reps": "6–8",
             "target": "RPE 7–8",
-            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral."
+            "notes": "Beinbeuger-/Gluteus-Fokus. Rücken neutral.",
+            "progression": "lower"
           },
           {
             "name": "Wadenheben einbeinig / sitzend",
             "sets": "3",
             "reps": "15–20",
             "target": "kontrolliert",
-            "notes": "Volle Bewegungsamplitude."
+            "notes": "Volle Bewegungsamplitude.",
+            "progression": "isolation"
           },
           {
             "name": "Schrägbankdrücken / DB Press",
             "sets": "4",
             "reps": "8–10",
             "target": "moderat",
-            "notes": "Alternative: Ring Push-ups."
+            "notes": "Alternative: Ring Push-ups.",
+            "progression": "upper"
           },
           {
             "name": "Vorgebeugtes Rudern",
             "sets": "4",
             "reps": "8–10",
             "target": "sauber",
-            "notes": "Alternative: Ring Rows."
+            "notes": "Alternative: Ring Rows.",
+            "progression": "upper"
           },
           {
             "name": "Seitheben",
             "sets": "3",
             "reps": "12–15",
             "target": "kontrolliert",
-            "notes": "Leichtes Gewicht, saubere Schulterführung."
+            "notes": "Leichtes Gewicht, saubere Schulterführung.",
+            "progression": "isolation"
           },
           {
             "name": "Face Pulls an den Ringen",
             "sets": "3",
             "reps": "12–15",
             "target": "leicht",
-            "notes": "Schultergesundheit, hintere Schulter."
+            "notes": "Schultergesundheit, hintere Schulter.",
+            "progression": "isolation"
           },
           {
             "name": "Hammer Curls",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Bizeps/Brachialis."
+            "notes": "Bizeps/Brachialis.",
+            "progression": "isolation"
           },
           {
             "name": "French Press / Overhead Extension",
             "sets": "3",
             "reps": "10–12",
             "target": "kontrolliert",
-            "notes": "Trizeps."
+            "notes": "Trizeps.",
+            "progression": "isolation"
           },
           {
             "name": "Hanging Leg Raises",
             "sets": "3",
             "reps": "10–12",
             "target": "Core",
-            "notes": "Alternative: Hanging Knee Raises."
+            "notes": "Alternative: Hanging Knee Raises.",
+            "progression": "core"
           }
         ]
       },
@@ -2917,12 +3525,18 @@ var PLAN = [
         "day": "Donnerstag",
         "type": "Rad",
         "title": "VO2max / Over-Unders",
+        "priority": 1,
+        "hard": true,
+        "key": true,
         "details": "45–60 min sehr locker oder komplett frei. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
         "type": "Athletik + Lauf",
         "title": "Athletic Conditioning A – Stabilität & Balance + lockerer Lauf",
+        "priority": 3,
+        "hard": false,
+        "key": false,
         "details": "25–35 min Athletic Conditioning, RPE 6–7. Kein HIIT. Danach oder getrennt 5–8 km locker.",
         "conditioning": [
           "3 Runden ohne Zeitdruck",
@@ -2939,43 +3553,63 @@ var PLAN = [
         "day": "Samstag",
         "type": "Rad optional",
         "title": "Optionale lange Ausfahrt",
+        "priority": 4,
+        "hard": false,
+        "key": false,
         "details": "60–90 min locker Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
         "type": "Ruhe",
-        "title": "Ruhetag",
-        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren."
+        "title": "Ruhetag + Wochenreview",
+        "priority": 5,
+        "hard": false,
+        "key": false,
+        "details": "Komplett frei oder Spaziergang/Mobility. Schlaf und Erholung priorisieren. Wochenreview ausfüllen."
       }
     ]
   }
 ];
-var LS_KEY = "martin_hybrid_athlete_plan_v1";
+var LS_KEY = "martin_hybrid_athlete_plan_v3";
 var state = {};
 try { state = JSON.parse(localStorage.getItem(LS_KEY) || "{}"); } catch(e) { state = {}; }
 if (!state.done) state.done = {};
+if (!state.missed) state.missed = {};
+if (!state.missedReason) state.missedReason = {};
 if (!state.exercise) state.exercise = {};
 if (!state.meta) state.meta = {};
-var selectedWeek = parseInt(localStorage.getItem("selectedWeekV1") || "1", 10);
+if (!state.metrics) state.metrics = [];
+var selectedWeek = parseInt(localStorage.getItem("selectedWeekV3") || "1", 10);
 if (!selectedWeek || selectedWeek < 1 || selectedWeek > 16) selectedWeek = 1;
 var selectedDay = 0;
+
 function byId(id) { return document.getElementById(id); }
 function weekKey(w) { return "w" + w; }
 function dayKey(w, d) { return "w" + w + "_d" + d; }
 function esc(s) { s = String(s == null ? "" : s); return s.replace(/[&<>"']/g, function(c) { return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]; }); }
-function saveState() { try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch(e) { alert("Speichern fehlgeschlagen: " + e.message); } updateStats(); }
-function updateStats() { var total = 0, done = 0; for (var i=0; i<PLAN.length; i++) { for (var j=0; j<PLAN[i].days.length; j++) { total++; if (state.done[dayKey(PLAN[i].week, j)]) done++; } } var pct = total ? Math.round(done / total * 100) : 0; byId("statDone").textContent = pct + "%"; byId("progressBar").style.width = pct + "%"; byId("statWeek").textContent = selectedWeek + "/16"; }
-function renderTabs(week) { var tabs = byId("dayTabs"); tabs.innerHTML = ""; for (var i=0; i<week.days.length; i++) { var b = document.createElement("button"); b.type = "button"; b.className = "tab" + (i === selectedDay ? " active" : ""); b.textContent = week.days[i].day; (function(idx) { b.onclick = function() { selectedDay = idx; render(); }; })(i); tabs.appendChild(b); } }
-function exerciseHtml(exs, weekNo, dayNo) { if (!exs) return ""; var out = "<h3>Übungen</h3>"; for (var i=0; i<exs.length; i++) { var e = exs[i]; var key = dayKey(weekNo, dayNo) + "_e" + i; var val = state.exercise[key] || ""; out += '<div class="exercise"><div><b>' + esc(e.name) + '</b><br><span class="small">' + esc(e.notes) + '</span></div><div>' + esc(e.sets) + ' × ' + esc(e.reps) + '<br><span class="small">' + esc(e.target) + '</span></div><div><input class="exerciseInput" data-key="' + esc(key) + '" placeholder="Gewicht/Notiz" value="' + esc(val) + '"></div></div>'; } return out; }
-function conditioningHtml(items) { if (!items) return ""; var out = "<h3>Conditioning</h3><ul>"; for (var i=0; i<items.length; i++) out += "<li>" + esc(items[i]) + "</li>"; return out + "</ul>"; }
-function loadWeekMeta() { var m = state.meta[weekKey(selectedWeek)] || {}; byId("readiness").value = m.readiness || ""; byId("sleep").value = m.sleep || ""; byId("weight").value = m.weight || ""; byId("rpe").value = m.rpe || ""; byId("weekNote").value = m.note || ""; }
-function render() { var week = PLAN[selectedWeek - 1]; if (!week) return; byId("weekSelect").value = String(selectedWeek); renderTabs(week); var d = week.days[selectedDay]; var dk = dayKey(week.week, selectedDay); var isDone = !!state.done[dk]; var note = state.meta[dk + "_note"] || ""; var out = '<div class="card"><span class="badge">' + esc(week.phase) + '</span><h2>Woche ' + week.week + ': ' + esc(week.focus) + '</h2></div>'; out += '<div class="card day ' + (isDone ? 'done' : '') + '"><div class="row"><div><span class="badge">' + esc(d.type) + '</span><h2>' + esc(d.day) + ': ' + esc(d.title) + '</h2></div><input class="checkbox" id="doneBox" type="checkbox" ' + (isDone ? 'checked' : '') + '></div><p>' + esc(d.details) + '</p>' + exerciseHtml(d.exercises, week.week, selectedDay) + conditioningHtml(d.conditioning) + '<h3>Notiz zu dieser Einheit</h3><textarea class="note" id="dayNote" placeholder="Wie lief es? Gewichte, Watt, Puls, Gefühl...">' + esc(note) + '</textarea></div>'; byId("weekContent").innerHTML = out; byId("doneBox").onchange = function() { state.done[dk] = this.checked; saveState(); render(); }; byId("dayNote").oninput = function() { state.meta[dk + "_note"] = this.value; saveState(); }; var inputs = document.getElementsByClassName("exerciseInput"); for (var i=0; i<inputs.length; i++) { inputs[i].oninput = function() { state.exercise[this.getAttribute("data-key")] = this.value; saveState(); }; } loadWeekMeta(); updateStats(); }
-function saveWeekMeta() { state.meta[weekKey(selectedWeek)] = { readiness: byId("readiness").value, sleep: byId("sleep").value, weight: byId("weight").value, rpe: byId("rpe").value, note: byId("weekNote").value }; saveState(); alert("Gespeichert"); }
-function resetWeek() { if (!confirm("Diese Woche wirklich zurücksetzen?")) return; var week = PLAN[selectedWeek - 1]; for (var i=0; i<week.days.length; i++) delete state.done[dayKey(selectedWeek, i)]; saveState(); render(); }
-function clearAll() { if (!confirm("Wirklich ALLE gespeicherten Daten löschen?")) return; if (!confirm("Sicher? Dies löscht Haken, Notizen und Gewichte.")) return; state = {done:{}, exercise:{}, meta:{}}; localStorage.removeItem(LS_KEY); saveState(); render(); }
-function exportBackup() { var payload = { app: "Hybrid Athlete 16 Wochen", version: "1.0", exportedAt: new Date().toISOString(), state: state }; var blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"}); var url = URL.createObjectURL(blob); var a = document.createElement("a"); var date = new Date().toISOString().slice(0,10); a.href = url; a.download = "hybrid-athlete-backup-" + date + ".json"; document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function() { URL.revokeObjectURL(url); }, 1000); byId("backupStatus").textContent = "Backup exportiert."; }
-function importBackup(evt) { var file = evt.target.files[0]; if (!file) return; var reader = new FileReader(); reader.onload = function() { try { var payload = JSON.parse(reader.result); if (!payload.state) { alert("Keine gültige Backup-Datei."); return; } state = payload.state; if (!state.done) state.done = {}; if (!state.exercise) state.exercise = {}; if (!state.meta) state.meta = {}; saveState(); render(); alert("Backup importiert."); } catch(e) { alert("Import fehlgeschlagen: " + e.message); } }; reader.readAsText(file); }
-window.onload = function() { byId("weekSelect").value = String(selectedWeek); byId("weekSelect").onchange = function() { selectedWeek = parseInt(this.value, 10); selectedDay = 0; localStorage.setItem("selectedWeekV1", String(selectedWeek)); render(); }; byId("saveMetaBtn").onclick = saveWeekMeta; byId("resetWeekBtn").onclick = resetWeek; byId("clearBtn").onclick = clearAll; byId("exportBtn").onclick = exportBackup; byId("importBtn").onclick = function() { byId("importFile").click(); }; byId("importFile").onchange = importBackup; render(); };
+function today() { return new Date().toISOString().slice(0,10); }
+function saveState() { try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch(e) { alert("Speichern fehlgeschlagen: " + e.message); } updateStats(); updateAdaptiveAdvice(); renderTrafficLight(); renderMetrics(); renderWeeklyReview(); }
+function updateStats() { var total=0, done=0; for(var i=0;i<PLAN.length;i++){ for(var j=0;j<PLAN[i].days.length;j++){ if(PLAN[i].days[j].type!=="Ruhe"){ total++; if(state.done[dayKey(PLAN[i].week,j)]) done++; } } } var pct=total?Math.round(done/total*100):0; byId("statDone").textContent=pct+"%"; byId("progressBar").style.width=pct+"%"; byId("statWeek").textContent=selectedWeek+"/16"; var last=lastMetric(); if(last){ byId("statFtp").textContent=last.ftp?last.ftp+" W":"253 W"; byId("statWkg").textContent=(last.ftp&&last.weight)?(last.ftp/last.weight).toFixed(2):"–"; } }
+function lastMetric(){ if(!state.metrics.length) return null; return state.metrics[state.metrics.length-1]; }
+function renderTabs(week){ var tabs=byId("dayTabs"); tabs.innerHTML=""; for(var i=0;i<week.days.length;i++){ var b=document.createElement("button"); b.type="button"; b.className="tab"+(i===selectedDay?" active":""); b.textContent=week.days[i].day; (function(idx){ b.onclick=function(){ selectedDay=idx; render(); }; })(i); tabs.appendChild(b); } }
+function progressionSuggestion(type,weight,reps,rpe){ rpe=parseFloat(rpe); weight=parseFloat(weight); if(!rpe) return "RPE eintragen"; if(rpe<=8){ if(type==="lower") return weight?("Nächstes Mal +2,5–5 kg → ca. "+(weight+2.5)+"–"+(weight+5)+" kg"):"+2,5–5 kg"; if(type==="upper") return weight?("Nächstes Mal +1–2,5 kg → ca. "+(weight+1)+"–"+(weight+2.5)+" kg"):"+1–2,5 kg"; if(type==="isolation") return "+1–2 Wdh. oder kleines Gewicht"; if(type==="bodyweight") return "+1 Wdh. oder Zusatzgewicht prüfen"; return "leicht steigern"; } if(rpe<=9) return "Gewicht halten"; return weight?("Nächstes Mal -5 % → ca. "+(weight*0.95).toFixed(1)+" kg"):"nächstes Mal reduzieren"; }
+function exerciseHtml(exs,weekNo,dayNo){ if(!exs) return ""; var out="<h3>Übungen</h3>"; for(var i=0;i<exs.length;i++){ var e=exs[i]; var key=dayKey(weekNo,dayNo)+"_e"+i; var v=state.exercise[key]||{}; var sug=progressionSuggestion(e.progression,v.weight,v.reps,v.rpe); out+='<div class="exercise"><div><b>'+esc(e.name)+'</b><br><span class="small">'+esc(e.notes)+'</span><br><span class="small"><b>Vorschlag:</b> '+esc(sug)+'</span></div><div>'+esc(e.sets)+' × '+esc(e.reps)+'<br><span class="small">'+esc(e.target)+'</span></div><div><input class="exWeight" data-key="'+esc(key)+'" placeholder="kg" value="'+esc(v.weight||"")+'"><input class="exReps" data-key="'+esc(key)+'" placeholder="Wdh. geschafft" value="'+esc(v.reps||"")+'"><input class="exRpe" data-key="'+esc(key)+'" placeholder="RPE" value="'+esc(v.rpe||"")+'"></div></div>'; } return out; }
+function conditioningHtml(items){ if(!items) return ""; var out="<h3>Conditioning</h3><ul>"; for(var i=0;i<items.length;i++) out+="<li>"+esc(items[i])+"</li>"; return out+"</ul>"; }
+function loadWeekMeta(){ var m=state.meta[weekKey(selectedWeek)]||{}; byId("readiness").value=m.readiness||""; byId("sleep").value=m.sleep||""; byId("stress").value=m.stress||""; byId("rpe").value=m.rpe||""; byId("weekNote").value=m.note||""; }
+function render(){ var week=PLAN[selectedWeek-1]; if(!week)return; byId("weekSelect").value=String(selectedWeek); renderTabs(week); var d=week.days[selectedDay]; var dk=dayKey(week.week,selectedDay); var isDone=!!state.done[dk]; var isMissed=!!state.missed[dk]; var note=state.meta[dk+"_note"]||""; var reason=state.missedReason[dk]||""; var out='<div class="card"><span class="badge">'+esc(week.phase)+'</span><h2>Woche '+week.week+': '+esc(week.focus)+'</h2></div>'; out+='<div class="card day '+(isDone?'done':'')+(isMissed?' missed':'')+'"><div class="row"><div><span class="badge">Prio '+esc(d.priority||"-")+' · '+esc(d.type)+'</span><h2>'+esc(d.day)+': '+esc(d.title)+'</h2></div><input class="checkbox" id="doneBox" type="checkbox" '+(isDone?'checked':'')+'></div><p>'+esc(d.details)+'</p>'+exerciseHtml(d.exercises,week.week,selectedDay)+conditioningHtml(d.conditioning); if(d.type!=="Ruhe"){ out+='<h3>Training verpasst?</h3><select id="missedReason"><option value="">Nein / kein Grund</option><option value="zeit">Keine Zeit / Familie / Arbeit</option><option value="muede">Müde / Beine schwer</option><option value="krank">Krank / Erkältung</option><option value="schmerz">Schmerzen</option></select><p><button class="warn" id="missedBtn" type="button">Als verpasst markieren</button> <button class="secondary" id="unmissedBtn" type="button">Verpasst zurücksetzen</button></p>'; } out+='<h3>Notiz zu dieser Einheit</h3><textarea class="note" id="dayNote" placeholder="Wie lief es? Gewichte, Watt, Puls, Gefühl...">'+esc(note)+'</textarea></div>'; byId("weekContent").innerHTML=out; byId("doneBox").onchange=function(){ state.done[dk]=this.checked; if(this.checked){ delete state.missed[dk]; delete state.missedReason[dk]; } saveState(); render(); }; if(byId("missedReason")) byId("missedReason").value=reason; if(byId("missedBtn")) byId("missedBtn").onclick=function(){ var r=byId("missedReason").value||"zeit"; state.missed[dk]=true; state.missedReason[dk]=r; delete state.done[dk]; saveState(); render(); }; if(byId("unmissedBtn")) byId("unmissedBtn").onclick=function(){ delete state.missed[dk]; delete state.missedReason[dk]; saveState(); render(); }; byId("dayNote").oninput=function(){ state.meta[dk+"_note"]=this.value; saveState(); }; bindExerciseInputs(); loadWeekMeta(); updateStats(); updateAdaptiveAdvice(); renderTrafficLight(); renderWeeklyReview(); }
+function bindExerciseInputs(){ var fields=["Weight","Reps","Rpe"]; for(var f=0;f<fields.length;f++){ var cls="ex"+fields[f]; var els=document.getElementsByClassName(cls); for(var i=0;i<els.length;i++){ els[i].oninput=function(){ var key=this.getAttribute("data-key"); if(!state.exercise[key]) state.exercise[key]={}; if(this.className==="exWeight") state.exercise[key].weight=this.value; if(this.className==="exReps") state.exercise[key].reps=this.value; if(this.className==="exRpe") state.exercise[key].rpe=this.value; saveState(); }; } } }
+function saveWeekMeta(){ state.meta[weekKey(selectedWeek)]={readiness:byId("readiness").value,sleep:byId("sleep").value,stress:byId("stress").value,rpe:byId("rpe").value,note:byId("weekNote").value}; saveState(); alert("Gespeichert"); }
+function missedRecommendation(day,reason){ var dname=day.day; if(reason==="krank") return "Krankheit: Nicht nachholen. Erst 24–48 h symptomfrei, dann locker einsteigen. Harte Radintervalle diese Woche streichen oder stark reduzieren."; if(reason==="schmerz") return "Schmerzen: Nicht nachholen. Belastung reduzieren und Ursache beobachten."; if(dname==="Dienstag") return "Dienstag Schwelle verpasst: Wenn du dich gut fühlst, auf Mittwoch schieben und Ganzkörper B kürzen/streichen. Donnerstag VO2 dann streichen oder durch 45–60 min Zone 2 ersetzen. Nicht Schwelle und VO2 direkt hintereinander nachholen."; if(dname==="Donnerstag") return "Donnerstag VO2/Over-Unders verpasst: Nicht am Freitag nachholen. Optional Samstag 2–3 kurze Aktivierungen in die Ausfahrt einbauen oder diese Einheit streichen."; if(dname==="Samstag") return "Optionale lange Ausfahrt verpasst: Kein Problem. Nicht kompensieren. Nächste Woche normal weitertrainieren."; if(dname==="Freitag") return "Athletic Conditioning/Lauf verpasst: Einfach streichen. Nicht nachholen."; return "Nicht nachholen, wenn dadurch zwei harte Tage hintereinander entstehen. Priorität bleiben Dienstag und Donnerstag."; }
+function updateAdaptiveAdvice(){ var week=PLAN[selectedWeek-1]; var advice=[]; var meta=state.meta[weekKey(selectedWeek)]||{}; var readiness=parseInt(meta.readiness||byId("readiness")?.value||"",10); var sleep=(meta.sleep||byId("sleep")?.value||"").toLowerCase(); var stress=(meta.stress||byId("stress")?.value||"").toLowerCase(); var rpe=parseInt(meta.rpe||byId("rpe")?.value||"",10); if(readiness&&readiness<40) advice.push("Readiness < 40: Heute keine harte Einheit. Schwelle/VO2 durch 45–60 min Zone 2 oder Mobility ersetzen."); else if(readiness&&readiness<55) advice.push("Readiness 40–55: Einheit möglich, aber Umfang um 20–30 % reduzieren."); if(sleep.indexOf("schlecht")>=0) advice.push("Schlechter Schlaf: RPE deckeln und Radintervalle eher an der unteren Wattgrenze fahren."); if(stress.indexOf("hoch")>=0) advice.push("Hoher Stress: Keine Zusatzeinheiten. Samstag optional streichen."); if(rpe&&rpe>=8) advice.push("Wochen-RPE hoch: nächste harte Einheit nur fahren, wenn Beine frisch sind. Sonst reduzieren."); for(var i=0;i<week.days.length;i++){ var key=dayKey(selectedWeek,i); if(state.missed[key]) advice.push(week.days[i].day+" verpasst: "+missedRecommendation(week.days[i],state.missedReason[key])); } if(advice.length===0) advice.push("Plan wie vorgesehen durchführen. Priorität: Dienstag Schwelle und Donnerstag VO2/Over-Unders. Samstag bleibt optional."); byId("adaptiveAdvice").textContent=advice.join("\n\n"); }
+function renderTrafficLight(){ var week=PLAN[selectedWeek-1]; var keyDone=0; var keyMissed=0; for(var i=0;i<week.days.length;i++){ if(week.days[i].key){ if(state.done[dayKey(selectedWeek,i)]) keyDone++; if(state.missed[dayKey(selectedWeek,i)]) keyMissed++; } } var meta=state.meta[weekKey(selectedWeek)]||{}; var readiness=parseInt(meta.readiness||"",10); var card=byId("trafficCard"); var txt=""; card.className="card"; if(readiness&&readiness<40){ card.className="card redbox"; txt="🔴 Erholung: Readiness niedrig. Harte Einheit reduzieren oder streichen."; } else if(keyDone>=2){ card.className="card recommendation"; txt="🟢 Optimal: Beide Rad-Key-Sessions erledigt."; } else if(keyDone===1){ card.className="card amber"; txt="🟡 Gut: Eine Rad-Key-Session erledigt. Nächste Priorität: zweite Key-Session oder Erholung."; } else if(keyMissed>=2){ card.className="card redbox"; txt="🔴 Reduzieren: Beide Rad-Key-Sessions verpasst. Nicht kompensieren, nächste Woche normal oder reduziert weiter."; } else { card.className="card amber"; txt="🟡 Offen: Noch keine Rad-Key-Session erledigt."; } byId("trafficLight").textContent=txt; }
+function renderWeeklyReview(){ var week=PLAN[selectedWeek-1]; var total=0,done=0; for(var i=0;i<week.days.length;i++){ if(week.days[i].type!=="Ruhe"){ total++; if(state.done[dayKey(selectedWeek,i)]) done++; } } var meta=state.meta[weekKey(selectedWeek)]||{}; var readiness=parseInt(meta.readiness||"",10); var rpe=parseInt(meta.rpe||"",10); var rec="Nächste Woche normal fortsetzen."; if((readiness&&readiness<40)||(rpe&&rpe>=8)) rec="Nächste Woche Intensität um 20–30 % reduzieren oder Deload vorziehen."; else if(done/Math.max(total,1)<0.5) rec="Nicht kompensieren. Nächste Woche mit den Key-Sessions neu starten."; byId("weeklyReview").innerHTML='<h3>Automatischer Wochenreview</h3><p>'+done+' von '+total+' Einheiten erledigt.</p><p><b>Empfehlung:</b> '+esc(rec)+'</p>'; }
+function addMetric(){ var date=byId("metricDate").value||today(); var ftp=parseFloat(byId("metricFtp").value||""); var weight=parseFloat(byId("metricWeight").value||""); if(!ftp&&!weight){ alert("Bitte FTP oder Gewicht eintragen."); return; } state.metrics.push({date:date,ftp:ftp||null,weight:weight||null}); state.metrics.sort(function(a,b){return a.date.localeCompare(b.date)}); byId("metricFtp").value=""; byId("metricWeight").value=""; saveState(); }
+function renderMetrics(){ if(!byId("metricsTable")) return; var rows=state.metrics||[]; if(!rows.length){ byId("metricsTable").innerHTML='<p class="small">Noch keine Einträge.</p>'; return; } var out='<table class="table"><tr><th>Datum</th><th>FTP</th><th>Gewicht</th><th>W/kg</th></tr>'; for(var i=0;i<rows.length;i++){ var r=rows[i]; var wkg=(r.ftp&&r.weight)?(r.ftp/r.weight).toFixed(2):"–"; out+='<tr><td>'+esc(r.date)+'</td><td>'+esc(r.ftp||"–")+'</td><td>'+esc(r.weight||"–")+'</td><td>'+wkg+'</td></tr>'; } out+='</table>'; byId("metricsTable").innerHTML=out; }
+function resetWeek(){ if(!confirm("Diese Woche wirklich zurücksetzen?"))return; var week=PLAN[selectedWeek-1]; for(var i=0;i<week.days.length;i++){ delete state.done[dayKey(selectedWeek,i)]; delete state.missed[dayKey(selectedWeek,i)]; delete state.missedReason[dayKey(selectedWeek,i)]; } saveState(); render(); }
+function clearAll(){ if(!confirm("Wirklich ALLE gespeicherten Daten löschen?"))return; if(!confirm("Sicher? Dies löscht Haken, Notizen, Gewichte, Metriken und Anpassungen."))return; state={done:{},missed:{},missedReason:{},exercise:{},meta:{},metrics:[]}; localStorage.removeItem(LS_KEY); saveState(); render(); }
+function exportBackup(){ var payload={app:"Hybrid Athlete 16 Wochen",version:"3.0",exportedAt:new Date().toISOString(),state:state}; var blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}); var url=URL.createObjectURL(blob); var a=document.createElement("a"); var date=today(); a.href=url; a.download="hybrid-athlete-backup-"+date+".json"; document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function(){URL.revokeObjectURL(url);},1000); byId("backupStatus").textContent="Backup exportiert."; }
+function importBackup(evt){ var file=evt.target.files[0]; if(!file)return; var reader=new FileReader(); reader.onload=function(){ try{ var payload=JSON.parse(reader.result); if(!payload.state){alert("Keine gültige Backup-Datei.");return;} state=payload.state; if(!state.done)state.done={}; if(!state.missed)state.missed={}; if(!state.missedReason)state.missedReason={}; if(!state.exercise)state.exercise={}; if(!state.meta)state.meta={}; if(!state.metrics)state.metrics=[]; saveState(); render(); alert("Backup importiert."); }catch(e){ alert("Import fehlgeschlagen: "+e.message); } }; reader.readAsText(file); }
+window.onload=function(){ byId("metricDate").value=today(); byId("weekSelect").value=String(selectedWeek); byId("weekSelect").onchange=function(){ selectedWeek=parseInt(this.value,10); selectedDay=0; localStorage.setItem("selectedWeekV3",String(selectedWeek)); render(); }; byId("saveMetaBtn").onclick=saveWeekMeta; byId("resetWeekBtn").onclick=resetWeek; byId("clearBtn").onclick=clearAll; byId("exportBtn").onclick=exportBackup; byId("importBtn").onclick=function(){byId("importFile").click();}; byId("importFile").onchange=importBackup; byId("addMetricBtn").onclick=addMetric; render(); renderMetrics(); };
 </script>
 </body>
 </html>
