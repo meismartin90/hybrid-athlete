@@ -56,7 +56,7 @@
 </style>
 </head>
 <body>
-<header><h1>Hybrid Athlete Plan</h1><div class="small">Martin · 16 Wochen · FTP 253 W → 270–275 W · v4.0 Modul 1B + Recovery UI</div></header>
+<header><h1>Hybrid Athlete Plan</h1><div class="small">Martin · 16 Wochen · FTP 253 W → 270–275 W · v4.0 Modul 1B + Recovery UI v2</div></header>
 
 <div class="card dashboard"><div class="grid"><div class="stat"><span class="small">Woche</span><b id="statWeek">1/16</b></div><div class="stat"><span class="small">Erledigt</span><b id="statDone">0%</b></div><div class="stat"><span class="small">FTP aktuell</span><b id="statFtp">253 W</b></div><div class="stat"><span class="small">FTP Ziel</span><b id="statFtpTarget">270–275 W</b></div></div><h3>Fortschritt</h3><div class="progress"><div id="progressBar"></div></div></div>
 
@@ -84,7 +84,7 @@
 
 <div class="card backup"><h2>Backup</h2><p>Die App speichert lokal im Browser. Für Sicherung: <b>Backup exportieren</b> antippen und JSON-Datei speichern. Über <b>Backup importieren</b> wiederherstellen.</p><button class="blue" id="exportBtn" type="button">Backup exportieren</button> <button class="secondary" id="importBtn" type="button">Backup importieren</button><input id="importFile" type="file" accept=".json,application/json" style="display:none"><p class="small" id="backupStatus">Noch kein Backup exportiert.</p></div>
 
-<div class="footer">Version 4.0 Modul 1B + Recovery UI · Wochen-Check-in · Progression · Keine externen Abhängigkeiten</div>
+<div class="footer">Version 4.0 Modul 1B + Recovery UI v2 · Müdigkeit als Recovery-Signal · Keine externen Abhängigkeiten</div>
 
 <script>
 var PLAN = [
@@ -3717,8 +3717,99 @@ function bindWeekMetaInputs(){
     el.onchange=saveWeekMeta;
   }
 }
-function missedRecommendation(day,reason){ var dname=day.day; if(reason==="krank") return "Krankheit: Nicht nachholen. Erst 24–48 h symptomfrei, dann locker einsteigen. Harte Radintervalle diese Woche streichen oder stark reduzieren."; if(reason==="schmerz") return "Schmerzen: Nicht nachholen. Belastung reduzieren und Ursache beobachten."; if(dname==="Dienstag") return "Dienstag Schwelle verpasst: Wenn du dich gut fühlst, auf Mittwoch schieben und Ganzkörper B kürzen/streichen. Donnerstag VO2 dann streichen oder durch 45–60 min Zone 2 ersetzen. Nicht Schwelle und VO2 direkt hintereinander nachholen."; if(dname==="Donnerstag") return "Donnerstag VO2/Over-Unders verpasst: Nicht am Freitag nachholen. Optional Samstag 2–3 kurze Aktivierungen in die Ausfahrt einbauen oder diese Einheit streichen."; if(dname==="Samstag") return "Optionale lange Ausfahrt verpasst: Kein Problem. Nicht kompensieren. Nächste Woche normal weitertrainieren."; if(dname==="Freitag") return "Athletic Conditioning/Lauf verpasst: Einfach streichen. Nicht nachholen."; return "Nicht nachholen, wenn dadurch zwei harte Tage hintereinander entstehen. Priorität bleiben Dienstag und Donnerstag."; }
-function recoveryStatus(meta){var score=0;var reasons=[];var readiness=parseInt(meta.readiness||"",10);var sleepScore=parseInt(meta.sleepScore||"",10);var feel=parseInt(meta.feel||"",10);var stress=parseInt(meta.stress||"",10);var rpe=parseInt(meta.rpe||"",10);var hrv=meta.hrvStatus||"";if(hrv==="high")score+=1;if(hrv==="low"){score-=1;reasons.push("HRV leicht niedriger");}if(hrv==="very_low"){score-=2;reasons.push("HRV deutlich niedriger");}if(readiness){if(readiness<40){score-=3;reasons.push("Training Readiness < 40");}else if(readiness<55){score-=1;reasons.push("Training Readiness 40–55");}else if(readiness>=75){score+=1;}}if(sleepScore){if(sleepScore<60){score-=2;reasons.push("Schlafscore < 60");}else if(sleepScore<75){score-=1;reasons.push("Schlafscore 60–74");}else if(sleepScore>=85){score+=1;}}if(feel){if(feel<=2){score-=2;reasons.push("subjektiv müde");}else if(feel===3){score-=1;}else if(feel>=4){score+=1;}}if(stress){if(stress>=5){score-=2;reasons.push("Stress sehr hoch");}else if(stress===4){score-=1;reasons.push("Stress hoch");}}if(rpe){if(rpe>=8){score-=2;reasons.push("Wochen-RPE hoch");}else if(rpe<=5){score+=1;}}if(score<=-5)return{level:"red",title:"🔴 Deload/Reduktion sinnvoll",text:"Harte Einheiten stark reduzieren oder Deload vorziehen.",reasons:reasons};if(score<=-2)return{level:"orange",title:"🟠 Umfang reduzieren",text:"Nächste Woche ca. 20–30 % weniger Umfang. VO2 nur fahren, wenn du dich frisch fühlst.",reasons:reasons};if(score<=1)return{level:"yellow",title:"🟡 Normal, aber kontrolliert",text:"Plan normal starten, Zusatzumfang weglassen und Intervalle eher am unteren Ende fahren.",reasons:reasons};return{level:"green",title:"🟢 Voll belastbar",text:"Plan wie vorgesehen. Progression im Krafttraining möglich.",reasons:reasons};}
+function missedReasonStats(weekNo){
+  var week=PLAN[weekNo-1];
+  var stats={zeit:0,muede:0,krank:0,schmerz:0,total:0};
+  if(!week) return stats;
+  for(var i=0;i<week.days.length;i++){
+    var key=dayKey(weekNo,i);
+    if(state.missed[key]){
+      var reason=state.missedReason[key]||"";
+      if(stats[reason]!==undefined) stats[reason]++;
+      stats.total++;
+    }
+  }
+  return stats;
+}
+function missedRecommendation(day,reason){
+  var dname=day.day;
+  if(reason==="krank") return "Krankheit: Nicht nachholen. Erst 24–48 h symptomfrei und dann locker einsteigen. Harte Radintervalle diese Woche streichen oder stark reduzieren.";
+  if(reason==="schmerz") return "Schmerzen: Nicht nachholen. Belastung reduzieren, Ursache beobachten und bei wiederkehrenden Schmerzen die betroffene Bewegung ersetzen.";
+  if(reason==="muede"){
+    if(dname==="Dienstag") return "Müdigkeit/Beine schwer: Schwelle nicht nachholen. Heute Erholung oder 30–45 min Zone 1/2. Donnerstag VO2 nur fahren, wenn Recovery wieder grün/gelb ist; sonst durch locker ersetzen.";
+    if(dname==="Donnerstag") return "Müdigkeit/Beine schwer: VO2/Over-Unders streichen. Nicht am Freitag nachholen. Samstag nur locker/gekürzt, wenn die Beine wieder frisch sind.";
+    if(dname==="Montag" || dname==="Mittwoch") return "Müdigkeit/Beine schwer: Kraft nicht nachholen. Nächste Krafteinheit normal fortsetzen, aber Gewichte halten und keine Progression erzwingen.";
+    if(dname==="Freitag") return "Müdigkeit/Beine schwer: Conditioning/Lauf streichen. Erholung priorisieren, keine Ersatzbelastung.";
+    if(dname==="Samstag") return "Müdigkeit/Beine schwer: Lange Ausfahrt nicht kompensieren. Nächste Woche normal oder leicht reduziert starten.";
+    return "Müdigkeit/Beine schwer: Nicht nachholen. Als Recovery-Signal werten, Umfang reduzieren und keine zusätzliche Intensität einbauen.";
+  }
+  if(dname==="Dienstag") return "Dienstag Schwelle verpasst: Wenn du dich gut fühlst, auf Mittwoch schieben und Ganzkörper B kürzen/streichen. Donnerstag VO2 dann streichen oder durch 45–60 min Zone 2 ersetzen. Nicht Schwelle und VO2 direkt hintereinander nachholen.";
+  if(dname==="Donnerstag") return "Donnerstag VO2/Over-Unders verpasst: Nicht am Freitag nachholen. Optional Samstag 2–3 kurze Aktivierungen in die Ausfahrt einbauen oder diese Einheit streichen.";
+  if(dname==="Samstag") return "Optionale lange Ausfahrt verpasst: Kein Problem. Nicht kompensieren. Nächste Woche normal weitertrainieren.";
+  if(dname==="Freitag") return "Athletic Conditioning/Lauf verpasst: Einfach streichen. Nicht nachholen.";
+  return "Nicht nachholen, wenn dadurch zwei harte Tage hintereinander entstehen. Priorität bleiben Dienstag und Donnerstag.";
+}
+function recoveryStatus(meta){
+  var score=0;
+  var reasons=[];
+  var readiness=parseInt(meta.readiness||"",10);
+  var sleepScore=parseInt(meta.sleepScore||"",10);
+  var feel=parseInt(meta.feel||"",10);
+  var stress=parseInt(meta.stress||"",10);
+  var rpe=parseInt(meta.rpe||"",10);
+  var hrv=meta.hrvStatus||"";
+  var missed=missedReasonStats(selectedWeek);
+
+  if(hrv==="high") score+=1;
+  if(hrv==="low"){score-=1;reasons.push("HRV leicht niedriger");}
+  if(hrv==="very_low"){score-=2;reasons.push("HRV deutlich niedriger");}
+
+  if(readiness){
+    if(readiness<40){score-=3;reasons.push("Training Readiness < 40");}
+    else if(readiness<55){score-=1;reasons.push("Training Readiness 40–55");}
+    else if(readiness>=75){score+=1;}
+  }
+
+  if(sleepScore){
+    if(sleepScore<60){score-=2;reasons.push("Schlafscore < 60");}
+    else if(sleepScore<75){score-=1;reasons.push("Schlafscore 60–74");}
+    else if(sleepScore>=85){score+=1;}
+  }
+
+  if(feel){
+    if(feel<=2){score-=2;reasons.push("subjektiv müde");}
+    else if(feel===3){score-=1;}
+    else if(feel>=4){score+=1;}
+  }
+
+  if(stress){
+    if(stress>=5){score-=2;reasons.push("Stress sehr hoch");}
+    else if(stress===4){score-=1;reasons.push("Stress hoch");}
+  }
+
+  if(rpe){
+    if(rpe>=8){score-=2;reasons.push("Wochen-RPE hoch");}
+    else if(rpe<=5){score+=1;}
+  }
+
+  if(missed.muede>0){
+    score-=2*missed.muede;
+    reasons.push(missed.muede===1 ? "1 Einheit wegen Müdigkeit/Beinen schwer verpasst" : missed.muede+" Einheiten wegen Müdigkeit/Beinen schwer verpasst");
+  }
+  if(missed.krank>0){
+    score-=4;
+    reasons.push("Krankheit in der Woche");
+  }
+  if(missed.schmerz>0){
+    score-=3;
+    reasons.push("Schmerzen als Belastungssignal");
+  }
+
+  if(score<=-5) return {level:"red",title:"🔴 Deload/Reduktion sinnvoll",text:"Harte Einheiten stark reduzieren oder Deload vorziehen.",reasons:reasons};
+  if(score<=-2) return {level:"orange",title:"🟠 Umfang reduzieren",text:"Nächste Woche ca. 20–30 % weniger Umfang. VO2 nur fahren, wenn du dich frisch fühlst.",reasons:reasons};
+  if(score<=1) return {level:"yellow",title:"🟡 Normal, aber kontrolliert",text:"Plan normal starten, Zusatzumfang weglassen und Intervalle eher am unteren Ende fahren.",reasons:reasons};
+  return {level:"green",title:"🟢 Voll belastbar",text:"Plan wie vorgesehen. Progression im Krafttraining möglich.",reasons:reasons};
+}
 function updateAdaptiveAdvice(){
   var el=byId("adaptiveAdvice");
   if(!el) return;
@@ -3743,18 +3834,21 @@ function renderWeeklyReview(){
   if(rec.level==="green") cls="recoveryGood";
   if(rec.level==="orange") cls="recoveryReduce";
   if(rec.level==="red") cls="recoveryStop";
+
   var next="Nächste Woche normal fortsetzen.";
   if(rec.level==="red") next="Deload oder deutliche Reduktion vorziehen. Keine harte VO2-Einheit.";
-  else if(rec.level==="orange") next="Nächste Woche Umfang um 20–30 % reduzieren.";
+  else if(rec.level==="orange") next="Nächste Woche Umfang um 20–30 % reduzieren. Kraftgewichte halten, keine erzwungene Progression.";
   else if(done/Math.max(total,1)<0.5) next="Nicht kompensieren. Mit den Key-Sessions neu starten.";
   else if(rec.level==="green") next="Normale Woche inklusive Kraftprogression möglich.";
+
   var missed=[];
   for(var j=0;j<week.days.length;j++){
     var dk=dayKey(selectedWeek,j);
     if(state.missed[dk]) missed.push(week.days[j].day+": "+missedRecommendation(week.days[j],state.missedReason[dk]));
   }
+  var reasons=rec.reasons.length?'<p><b>Auslöser:</b><br>'+esc(rec.reasons.join("\\n")).replace(/\\n/g,"<br>")+'</p>':'';
   var extra=missed.length?'<p><b>Verpasste Einheiten:</b><br>'+esc(missed.join("\\n\\n")).replace(/\\n/g,"<br>")+'</p>':'';
-  byId("weeklyReview").innerHTML='<h3>Plan-Anpassung</h3><div class="'+cls+' card" style="margin:10px 0 0;padding:12px"><b>'+esc(rec.title)+'</b><p>'+esc(rec.text)+'</p><p>'+done+' von '+total+' Einheiten erledigt.</p><p><b>Empfehlung:</b> '+esc(next)+'</p>'+extra+'</div>';
+  byId("weeklyReview").innerHTML='<h3>Plan-Anpassung</h3><div class="'+cls+' card" style="margin:10px 0 0;padding:12px"><b>'+esc(rec.title)+'</b><p>'+esc(rec.text)+'</p><p>'+done+' von '+total+' Einheiten erledigt.</p>'+reasons+'<p><b>Empfehlung:</b> '+esc(next)+'</p>'+extra+'</div>';
 }
 function addMetric(){ saveWeekMeta(); }
 function renderMetrics(){
