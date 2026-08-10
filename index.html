@@ -56,7 +56,7 @@
 </style>
 </head>
 <body>
-<header><h1>Hybrid Athlete Plan</h1><div class="small">Martin · 16 Wochen · FTP 253 W → 270–275 W · v4.0 Modul 1B + Recovery UI v4</div></header>
+<header><h1>Hybrid Athlete Plan</h1><div class="small">Martin · 16 Wochen · FTP 253 W → 270–275 W · v4.0 Modul 1B + Recovery UI v5</div></header>
 
 <div class="card dashboard"><div class="grid"><div class="stat"><span class="small">Woche</span><b id="statWeek">1/16</b></div><div class="stat"><span class="small">Erledigt</span><b id="statDone">0%</b></div><div class="stat"><span class="small">FTP aktuell</span><b id="statFtp">253 W</b></div><div class="stat"><span class="small">FTP Ziel</span><b id="statFtpTarget">270–275 W</b></div></div><h3>Fortschritt</h3><div class="progress"><div id="progressBar"></div></div></div>
 
@@ -84,7 +84,7 @@
 
 <div class="card backup"><h2>Backup</h2><p>Die App speichert lokal im Browser. Für Sicherung: <b>Backup exportieren</b> antippen und JSON-Datei speichern. Über <b>Backup importieren</b> wiederherstellen.</p><button class="blue" id="exportBtn" type="button">Backup exportieren</button> <button class="secondary" id="importBtn" type="button">Backup importieren</button><input id="importFile" type="file" accept=".json,application/json" style="display:none"><p class="small" id="backupStatus">Noch kein Backup exportiert.</p></div>
 
-<div class="footer">Version 4.0 Modul 1B + Recovery UI v4 · FTP-optimierter Radplan · dynamische Wattbereiche · Keine externen Abhängigkeiten</div>
+<div class="footer">Version 4.0 Modul 1B + Recovery UI v5 · optionale Zone 2 separat · Recovery-Wochenampel · dynamische Wattbereiche · Keine externen Abhängigkeiten</div>
 
 <script>
 var PLAN = [
@@ -3643,10 +3643,63 @@ function percentDetailsWithWatts(details,w){
     return low+"–"+high+"% FTP ("+wLow+"–"+wHigh+" W)";
   });
 }
-function updateStats() { var total=0, done=0; for(var i=0;i<PLAN.length;i++){ for(var j=0;j<PLAN[i].days.length;j++){ if(PLAN[i].days[j].type!=="Ruhe"){ total++; if(state.done[dayKey(PLAN[i].week,j)]) done++; } } } var pct=total?Math.round(done/total*100):0; byId("statDone").textContent=pct+"%"; byId("progressBar").style.width=pct+"%"; byId("statWeek").textContent=selectedWeek+"/16"; if(byId("statFtpTarget")) byId("statFtpTarget").textContent="270–275 W"; var cur=currentMetricForWeek(selectedWeek); byId("statFtp").textContent=(cur&&cur.ftp)?cur.ftp+" W":"253 W"; }
+function isOptionalTrainingDay(day){
+  if(!day) return false;
+  var txt=((day.type||"")+" "+(day.title||"")+" "+(day.details||"")).toLowerCase();
+  return txt.indexOf("optional")>=0 || txt.indexOf("optionale")>=0;
+}
+function isRequiredTrainingDay(day){ return day && day.type!=="Ruhe" && !isOptionalTrainingDay(day); }
+function requiredCompletionStats(weekNo){
+  var total=0,done=0;
+  var weeks=weekNo?[PLAN[weekNo-1]]:PLAN;
+  for(var i=0;i<weeks.length;i++){
+    if(!weeks[i]) continue;
+    for(var j=0;j<weeks[i].days.length;j++){
+      var day=weeks[i].days[j];
+      if(isRequiredTrainingDay(day)){
+        total++;
+        if(state.done[dayKey(weeks[i].week,j)]) done++;
+      }
+    }
+  }
+  return {total:total,done:done,pct:total?Math.round(done/total*100):0};
+}
+function optionalCompletionStats(weekNo){
+  var total=0,done=0;
+  var weeks=weekNo?[PLAN[weekNo-1]]:PLAN;
+  for(var i=0;i<weeks.length;i++){
+    if(!weeks[i]) continue;
+    for(var j=0;j<weeks[i].days.length;j++){
+      var day=weeks[i].days[j];
+      if(day && day.type!=="Ruhe" && isOptionalTrainingDay(day)){
+        total++;
+        if(state.done[dayKey(weeks[i].week,j)]) done++;
+      }
+    }
+  }
+  return {total:total,done:done,pct:total?Math.round(done/total*100):0};
+}
+function updateDayPowerDetails(){
+  var el=byId("dayDetails");
+  if(!el) return;
+  var week=PLAN[selectedWeek-1];
+  if(!week) return;
+  var day=week.days[selectedDay];
+  if(!day) return;
+  el.textContent=percentDetailsWithWatts(day.details,week.week);
+}
+function refreshAfterMetaChange(){ updateStats(); updateDayPowerDetails(); updateAdaptiveAdvice(); renderTrafficLight(); renderWeeklyReview(); renderMetrics(); }
+function updateStats(){
+  var stats=requiredCompletionStats(null);
+  byId("statDone").textContent=stats.pct+"%";
+  byId("progressBar").style.width=stats.pct+"%";
+  byId("statWeek").textContent=selectedWeek+"/16";
+  if(byId("statFtpTarget")) byId("statFtpTarget").textContent="270–275 W";
+  var cur=currentMetricForWeek(selectedWeek);
+  byId("statFtp").textContent=(cur&&cur.ftp)?cur.ftp+" W":"253 W";
+}
 function lastMetric(){ if(!state.metrics||!state.metrics.length) return null; return state.metrics[state.metrics.length-1]; }
 function renderTabs(week){ var tabs=byId("dayTabs"); tabs.innerHTML=""; for(var i=0;i<week.days.length;i++){ var b=document.createElement("button"); b.type="button"; b.className="tab"+(i===selectedDay?" active":""); b.textContent=week.days[i].day; (function(idx){ b.onclick=function(){ selectedDay=idx; render(); }; })(i); tabs.appendChild(b); } }
-function progressionSuggestion(type,weight,reps,rpe){ rpe=parseFloat(rpe); weight=parseFloat(weight); if(!rpe) return "RPE eintragen"; if(rpe<=8){ if(type==="lower") return weight?("Nächstes Mal +2,5–5 kg → ca. "+(weight+2.5)+"–"+(weight+5)+" kg"):"+2,5–5 kg"; if(type==="upper") return weight?("Nächstes Mal +1–2,5 kg → ca. "+(weight+1)+"–"+(weight+2.5)+" kg"):"+1–2,5 kg"; if(type==="isolation") return "+1–2 Wdh. oder kleines Gewicht"; if(type==="bodyweight") return "+1 Wdh. oder Zusatzgewicht prüfen"; return "leicht steigern"; } if(rpe<=9) return "Gewicht halten"; return weight?("Nächstes Mal -5 % → ca. "+(weight*0.95).toFixed(1)+" kg"):"nächstes Mal reduzieren"; }
 function rirLabel(rir){if(rir==="4")return "Sehr leicht (4+ Wdh. im Tank)";if(rir==="3")return "Locker (3 Wdh. im Tank)";if(rir==="2")return "Anspruchsvoll (2 Wdh. im Tank)";if(rir==="1")return "Hart (1 Wdh. im Tank)";if(rir==="0")return "Maximal (0 Wdh. im Tank)";return "nicht eingetragen";}
 function exerciseOrderValue(weekNo,dayNo,exIdx){return weekNo*100+dayNo*10+exIdx;}
 function findLastExerciseEntry(exerciseName,weekNo,dayNo,exIdx){var currentOrder=exerciseOrderValue(weekNo,dayNo,exIdx);var best=null;for(var w=0;w<PLAN.length;w++){var week=PLAN[w];for(var d=0;d<week.days.length;d++){var day=week.days[d];if(!day.exercises)continue;for(var e=0;e<day.exercises.length;e++){if(day.exercises[e].name!==exerciseName)continue;var order=exerciseOrderValue(week.week,d,e);if(order>=currentOrder)continue;var key=dayKey(week.week,d)+"_e"+e;var entry=state.exercise[key];if(entry&&entry.topWeight&&entry.topReps){if(!best||order>best.order){best={order:order,entry:entry,week:week.week,day:day.day};}}}}}return best;}
@@ -3678,9 +3731,9 @@ function render(){
   var note=state.meta[dk+"_note"]||"";
   var reason=state.missedReason[dk]||"";
   var out='<div class="card"><span class="badge">'+esc(week.phase)+'</span><h2>Woche '+week.week+': '+esc(week.focus)+'</h2></div>';
-  out+='<div class="card day '+(isDone?'done':'')+(isMissed?' missed':'')+'"><div class="row"><div><span class="badge">Prio '+esc(d.priority||"-")+' · '+esc(d.type)+'</span><h2>'+esc(d.day)+': '+esc(d.title)+'</h2></div><input class="checkbox" id="doneBox" type="checkbox" '+(isDone?'checked':'')+'></div><p>'+esc(percentDetailsWithWatts(d.details,week.week))+'</p>'+exerciseHtml(d.exercises,week.week,selectedDay)+conditioningHtml(d.conditioning);
+  out+='<div class="card day '+(isDone?'done':'')+(isMissed?' missed':'')+'"><div class="row"><div><span class="badge">Prio '+esc(d.priority||"-")+' · '+esc(d.type)+'</span><h2>'+esc(d.day)+': '+esc(d.title)+'</h2></div><input class="checkbox" id="doneBox" type="checkbox" '+(isDone?'checked':'')+'></div><p id="dayDetails">'+esc(percentDetailsWithWatts(d.details,week.week))+'</p>'+exerciseHtml(d.exercises,week.week,selectedDay)+conditioningHtml(d.conditioning);
   if(d.type!=="Ruhe"){
-    out+='<h3>Training verpasst?</h3><select id="missedReason"><option value="">Nein / gemacht</option><option value="zeit">Keine Zeit / Familie / Arbeit</option><option value="muede">Müde / Beine schwer</option><option value="krank">Krank / Erkältung</option><option value="schmerz">Schmerzen</option></select>';
+    out+='<h3>Training verpasst?</h3><select id="missedReason"><option value="">Nicht verpasst</option><option value="zeit">Keine Zeit / Familie / Arbeit</option><option value="muede">Müde / Beine schwer</option><option value="krank">Krank / Erkältung</option><option value="schmerz">Schmerzen</option></select>';
   }
   out+='<h3>Notiz zu dieser Einheit</h3><textarea class="note" id="dayNote" placeholder="Wie lief es? Gewichte, Watt, Puls, Gefühl...">'+esc(note)+'</textarea></div>';
   byId("weekContent").innerHTML=out;
@@ -3706,7 +3759,6 @@ function render(){
 }
 function bindExerciseInputs(){var weights=document.getElementsByClassName("exTopWeight");for(var i=0;i<weights.length;i++){weights[i].oninput=function(){var key=this.getAttribute("data-key");if(!state.exercise[key])state.exercise[key]={};state.exercise[key].topWeight=this.value;saveState();};}var reps=document.getElementsByClassName("exTopReps");for(var i=0;i<reps.length;i++){reps[i].oninput=function(){var key=this.getAttribute("data-key");if(!state.exercise[key])state.exercise[key]={};state.exercise[key].topReps=this.value;saveState();};}var rir=document.getElementsByClassName("exRir");for(var i=0;i<rir.length;i++){rir[i].onchange=function(){var key=this.getAttribute("data-key");if(!state.exercise[key])state.exercise[key]={};state.exercise[key].rir=this.value;saveState();render();};}}
 function saveWeekMeta(){
-  var existing=state.meta[weekKey(selectedWeek)]||{};
   state.meta[weekKey(selectedWeek)]={
     ftp:byId("weeklyFtp")?byId("weeklyFtp").value:"",
     weight:byId("weeklyWeight")?byId("weeklyWeight").value:"",
@@ -3726,8 +3778,8 @@ function bindWeekMetaInputs(){
   for(var i=0;i<ids.length;i++){
     var el=byId(ids[i]);
     if(!el) continue;
-    el.oninput=saveWeekMeta;
-    el.onchange=saveWeekMeta;
+    el.oninput=function(){ saveWeekMeta(); refreshAfterMetaChange(); };
+    el.onchange=function(){ saveWeekMeta(); refreshAfterMetaChange(); };
   }
 }
 function missedReasonStats(weekNo){
@@ -3849,17 +3901,54 @@ function updateAdaptiveAdvice(){
   var rec=recoveryStatus(meta);
   el.textContent=rec.title+": "+rec.text;
 }
-function renderTrafficLight(){ var week=PLAN[selectedWeek-1]; var keyDone=0; var keyMissed=0; for(var i=0;i<week.days.length;i++){ if(week.days[i].key){ if(state.done[dayKey(selectedWeek,i)]) keyDone++; if(state.missed[dayKey(selectedWeek,i)]) keyMissed++; } } var meta=state.meta[weekKey(selectedWeek)]||{}; var readiness=parseInt(meta.readiness||"",10); var card=byId("trafficCard"); var txt=""; card.className="card"; if(readiness&&readiness<40){ card.className="card redbox"; txt="🔴 Erholung: Readiness niedrig. Harte Einheit reduzieren oder streichen."; } else if(keyDone>=2){ card.className="card recommendation"; txt="🟢 Optimal: Beide Rad-Key-Sessions erledigt."; } else if(keyDone===1){ card.className="card amber"; txt="🟡 Gut: Eine Rad-Key-Session erledigt. Nächste Priorität: zweite Key-Session oder Erholung."; } else if(keyMissed>=2){ card.className="card redbox"; txt="🔴 Reduzieren: Beide Rad-Key-Sessions verpasst. Nicht kompensieren, nächste Woche normal oder reduziert weiter."; } else { card.className="card amber"; txt="🟡 Offen: Noch keine Rad-Key-Session erledigt."; } byId("trafficLight").textContent=txt; }
+function renderTrafficLight(){
+  var week=PLAN[selectedWeek-1];
+  var keyDone=0;
+  var keyMissed=0;
+  for(var i=0;i<week.days.length;i++){
+    if(week.days[i].key){
+      if(state.done[dayKey(selectedWeek,i)]) keyDone++;
+      if(state.missed[dayKey(selectedWeek,i)]) keyMissed++;
+    }
+  }
+  var meta=state.meta[weekKey(selectedWeek)]||{};
+  var rec=recoveryStatus(meta);
+  var card=byId("trafficCard");
+  var txt="";
+  card.className="card";
+
+  if(rec.level==="red"){
+    card.className="card redbox";
+    txt="🔴 Recovery rot: "+rec.text+" Auch erledigte Key-Sessions ändern daran nichts – nächste harte Einheit reduzieren oder streichen.";
+  } else if(rec.level==="orange"){
+    card.className="card amber";
+    txt="🟠 Recovery orange: "+rec.text+" Plan nur reduziert fahren, Zusatzumfang weglassen.";
+  } else if(keyMissed>=2){
+    card.className="card redbox";
+    txt="🔴 Reduzieren: Beide Rad-Key-Sessions verpasst. Nicht kompensieren, nächste Woche normal oder reduziert weiter.";
+  } else if(keyDone>=2){
+    if(rec.level==="green"){
+      card.className="card recommendation";
+      txt="🟢 Optimal: Beide Rad-Key-Sessions erledigt und Recovery unauffällig.";
+    } else {
+      card.className="card amber";
+      txt="🟡 Key-Sessions erledigt, aber Recovery nur kontrolliert. Nächste Woche Zusatzumfang vorsichtig dosieren.";
+    }
+  } else if(keyDone===1){
+    card.className="card amber";
+    txt="🟡 Gut: Eine Rad-Key-Session erledigt. Nächste Priorität: zweite Key-Session oder Erholung.";
+  } else {
+    card.className="card amber";
+    txt="🟡 Offen: Noch keine Rad-Key-Session erledigt.";
+  }
+  byId("trafficLight").textContent=txt;
+}
 function renderWeeklyReview(){
   if(!byId("weeklyReview")) return;
   var week=PLAN[selectedWeek-1];
-  var total=0,done=0;
-  for(var i=0;i<week.days.length;i++){
-    if(week.days[i].type!=="Ruhe"){
-      total++;
-      if(state.done[dayKey(selectedWeek,i)]) done++;
-    }
-  }
+  var req=requiredCompletionStats(selectedWeek);
+  var optWeek=optionalCompletionStats(selectedWeek);
+  var optAll=optionalCompletionStats(null);
   var meta=state.meta[weekKey(selectedWeek)]||{};
   var rec=recoveryStatus(meta);
   var cls="recoveryNormal";
@@ -3870,7 +3959,7 @@ function renderWeeklyReview(){
   var next="Nächste Woche normal fortsetzen.";
   if(rec.level==="red") next="Deload oder deutliche Reduktion vorziehen. Keine harte zweite Radeinheit.";
   else if(rec.level==="orange") next="Nächste Woche Umfang um 20–30 % reduzieren. Kraftgewichte halten, keine erzwungene Progression.";
-  else if(done/Math.max(total,1)<0.5) next="Nicht kompensieren. Mit den Key-Sessions neu starten.";
+  else if(req.done/Math.max(req.total,1)<0.5) next="Nicht kompensieren. Mit den Key-Sessions neu starten.";
   else if(rec.level==="green") next="Normale Woche inklusive Kraftprogression möglich.";
 
   var missed=[];
@@ -3880,7 +3969,11 @@ function renderWeeklyReview(){
   }
   var reasons=rec.reasons.length?'<p><b>Auslöser:</b><br>'+esc(rec.reasons.join("\\n")).replace(/\\n/g,"<br>")+'</p>':'';
   var extra=missed.length?'<p><b>Verpasste Einheiten:</b><br>'+esc(missed.join("\\n\\n")).replace(/\\n/g,"<br>")+'</p>':'';
-  byId("weeklyReview").innerHTML='<h3>Plan-Anpassung</h3><div class="'+cls+' card" style="margin:10px 0 0;padding:12px"><b>'+esc(rec.title)+'</b><p>'+esc(rec.text)+'</p><p>'+done+' von '+total+' Einheiten erledigt.</p>'+reasons+'<p><b>Empfehlung:</b> '+esc(next)+'</p>'+extra+'</div>';
+  var optionalLine='';
+  if(optWeek.total){
+    optionalLine='<p class="small"><b>Optional Zone 2:</b> Diese Woche '+optWeek.done+' von '+optWeek.total+' erledigt · Gesamt '+optAll.done+' von '+optAll.total+'. Diese Rides zählen nicht in die Pflicht-Erledigt-Quote.</p>';
+  }
+  byId("weeklyReview").innerHTML='<h3>Empfehlung für nächste Woche</h3><div class="'+cls+' card" style="margin:10px 0 0;padding:12px"><b>'+esc(rec.title)+'</b><p>'+esc(rec.text)+'</p><p>'+req.done+' von '+req.total+' Pflicht-Einheiten erledigt.</p>'+optionalLine+reasons+'<p><b>Empfehlung:</b> '+esc(next)+'</p>'+extra+'</div>';
 }
 function addMetric(){ saveWeekMeta(); }
 function renderMetrics(){
@@ -3921,7 +4014,7 @@ function renderMetrics(){
 }
 function resetWeek(){ if(!confirm("Diese Woche wirklich zurücksetzen?"))return; var week=PLAN[selectedWeek-1]; for(var i=0;i<week.days.length;i++){ delete state.done[dayKey(selectedWeek,i)]; delete state.missed[dayKey(selectedWeek,i)]; delete state.missedReason[dayKey(selectedWeek,i)]; } saveState(); render(); }
 function clearAll(){ if(!confirm("Wirklich ALLE gespeicherten Daten löschen?"))return; if(!confirm("Sicher? Dies löscht Haken, Notizen, Gewichte, Metriken und Anpassungen."))return; state={done:{},missed:{},missedReason:{},exercise:{},meta:{},metrics:[]}; localStorage.removeItem(LS_KEY); saveState(); render(); }
-function exportBackup(){ var payload={app:"Hybrid Athlete 16 Wochen",version:"4.0-Modul-1B-Recovery-UI-v3-Anaerob",exportedAt:new Date().toISOString(),state:state}; var blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}); var url=URL.createObjectURL(blob); var a=document.createElement("a"); var date=today(); a.href=url; a.download="hybrid-athlete-backup-"+date+".json"; document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function(){URL.revokeObjectURL(url);},1000); byId("backupStatus").textContent="Backup exportiert."; }
+function exportBackup(){ var payload={app:"Hybrid Athlete 16 Wochen",version:"4.0-Modul-1B-Recovery-UI-v5",exportedAt:new Date().toISOString(),state:state}; var blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}); var url=URL.createObjectURL(blob); var a=document.createElement("a"); var date=today(); a.href=url; a.download="hybrid-athlete-backup-"+date+".json"; document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function(){URL.revokeObjectURL(url);},1000); byId("backupStatus").textContent="Backup exportiert."; }
 function importBackup(evt){ var file=evt.target.files[0]; if(!file)return; var reader=new FileReader(); reader.onload=function(){ try{ var payload=JSON.parse(reader.result); if(!payload.state){alert("Keine gültige Backup-Datei.");return;} state=payload.state; if(!state.done)state.done={}; if(!state.missed)state.missed={}; if(!state.missedReason)state.missedReason={}; if(!state.exercise)state.exercise={}; if(!state.meta)state.meta={}; if(!state.metrics)state.metrics=[]; saveState(); render(); alert("Backup importiert."); }catch(e){ alert("Import fehlgeschlagen: "+e.message); } }; reader.readAsText(file); }
 window.onload=function(){
   byId("weekSelect").value=String(selectedWeek);
