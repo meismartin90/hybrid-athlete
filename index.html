@@ -56,7 +56,7 @@
 </style>
 </head>
 <body>
-<header><h1>Hybrid Athlete Plan</h1><div class="small">Martin · 16 Wochen · FTP 253 W → 270–275 W · v4.0 Modul 1B + Recovery UI v2</div></header>
+<header><h1>Hybrid Athlete Plan</h1><div class="small">Martin · 16 Wochen · FTP 253 W → 270–275 W · v4.0 Modul 1B + Recovery UI v3</div></header>
 
 <div class="card dashboard"><div class="grid"><div class="stat"><span class="small">Woche</span><b id="statWeek">1/16</b></div><div class="stat"><span class="small">Erledigt</span><b id="statDone">0%</b></div><div class="stat"><span class="small">FTP aktuell</span><b id="statFtp">253 W</b></div><div class="stat"><span class="small">FTP Ziel</span><b id="statFtpTarget">270–275 W</b></div></div><h3>Fortschritt</h3><div class="progress"><div id="progressBar"></div></div></div>
 
@@ -84,7 +84,7 @@
 
 <div class="card backup"><h2>Backup</h2><p>Die App speichert lokal im Browser. Für Sicherung: <b>Backup exportieren</b> antippen und JSON-Datei speichern. Über <b>Backup importieren</b> wiederherstellen.</p><button class="blue" id="exportBtn" type="button">Backup exportieren</button> <button class="secondary" id="importBtn" type="button">Backup importieren</button><input id="importFile" type="file" accept=".json,application/json" style="display:none"><p class="small" id="backupStatus">Noch kein Backup exportiert.</p></div>
 
-<div class="footer">Version 4.0 Modul 1B + Recovery UI v2 · Müdigkeit als Recovery-Signal · Keine externen Abhängigkeiten</div>
+<div class="footer">Version 4.0 Modul 1B + Recovery UI v3 · Anaerobe Donnerstage · Keine externen Abhängigkeiten</div>
 
 <script>
 var PLAN = [
@@ -311,7 +311,7 @@ var PLAN = [
   {
     "week": 2,
     "phase": "Foundation",
-    "focus": "Rhythmus etablieren, Technik sauber halten, FTP-Basis legen.",
+    "focus": "Rhythmus etablieren, Technik sauber halten, FTP-Basis legen. Ergänzend: kurzer anaerober Reiz statt zweiter hoch-aerober Einheit.",
     "days": [
       {
         "day": "Montag",
@@ -483,11 +483,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "Anaerobe Kurzintervalle",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "6×3 min @115% FTP (291 W), 3 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "Anaerobe Kurzintervalle: 6–8×30 s sehr hart (ca. 130–150% FTP / RPE 9–10), jeweils 3 min sehr locker rollen. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker. Ziel: klarer anaerober Reiz, nicht als lange VO2-Einheit ausfahren."
       },
       {
         "day": "Freitag",
@@ -751,7 +751,7 @@ var PLAN = [
   {
     "week": 4,
     "phase": "Foundation",
-    "focus": "Rhythmus etablieren, Technik sauber halten, FTP-Basis legen.",
+    "focus": "Rhythmus etablieren, Technik sauber halten, FTP-Basis legen. Ergänzend: kurzer anaerober Reiz statt zweiter hoch-aerober Einheit.",
     "days": [
       {
         "day": "Montag",
@@ -923,11 +923,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "Anaerobe Kurzintervalle",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "3×10 min Over/Under: 1 min @105% (266 W) + 1 min @95% (240 W), 5 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "Anaerobe Kurzintervalle: 6–8×30 s sehr hart (ca. 130–150% FTP / RPE 9–10), jeweils 3 min sehr locker rollen. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker. Ziel: klarer anaerober Reiz, nicht als lange VO2-Einheit ausfahren."
       },
       {
         "day": "Freitag",
@@ -1143,7 +1143,7 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "Locker / Technik",
         "priority": 1,
         "hard": true,
         "key": true,
@@ -1411,7 +1411,7 @@ var PLAN = [
   {
     "week": 7,
     "phase": "Build",
-    "focus": "Schwellenvolumen erhöhen und VO2max gezielt verbessern.",
+    "focus": "Schwellenvolumen erhöhen und VO2max gezielt verbessern. Ergänzend: kurzer anaerober Reiz statt zweiter hoch-aerober Einheit.",
     "days": [
       {
         "day": "Montag",
@@ -1583,11 +1583,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "Anaerobe Kurzintervalle",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "5×4 min @110% FTP (278 W), 3 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "Anaerobe Kurzintervalle: 6–8×30 s sehr hart (ca. 130–150% FTP / RPE 9–10), jeweils 3 min sehr locker rollen. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker. Ziel: klarer anaerober Reiz, nicht als lange VO2-Einheit ausfahren."
       },
       {
         "day": "Freitag",
@@ -1851,7 +1851,7 @@ var PLAN = [
   {
     "week": 9,
     "phase": "Build",
-    "focus": "Schwellenvolumen erhöhen und VO2max gezielt verbessern.",
+    "focus": "Schwellenvolumen erhöhen und VO2max gezielt verbessern. Ergänzend: kurzer anaerober Reiz statt zweiter hoch-aerober Einheit.",
     "days": [
       {
         "day": "Montag",
@@ -2023,11 +2023,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "Anaerobe Kurzintervalle",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "4×12 min Over/Under: 2 min @105% (266 W) + 2 min @95% (240 W), 6 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "Anaerobe Kurzintervalle: 6–8×30 s sehr hart (ca. 130–150% FTP / RPE 9–10), jeweils 3 min sehr locker rollen. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker. Ziel: klarer anaerober Reiz, nicht als lange VO2-Einheit ausfahren."
       },
       {
         "day": "Freitag",
@@ -2243,7 +2243,7 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "Locker / Technik",
         "priority": 1,
         "hard": true,
         "key": true,
@@ -2511,7 +2511,7 @@ var PLAN = [
   {
     "week": 12,
     "phase": "Performance",
-    "focus": "Längere Intervalle, bessere Ermüdungsresistenz, rennspezifische Over/Unders.",
+    "focus": "Längere Intervalle, bessere Ermüdungsresistenz, rennspezifische Over/Unders. Ergänzend: kurzer anaerober Reiz statt zweiter hoch-aerober Einheit.",
     "days": [
       {
         "day": "Montag",
@@ -2683,11 +2683,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "Anaerobe Kurzintervalle",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "4×10 min Over/Under: 2 min @105% (266 W) + 2 min @95% (240 W), 5–6 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "Anaerobe Kurzintervalle: 6–8×30 s sehr hart (ca. 130–150% FTP / RPE 9–10), jeweils 3 min sehr locker rollen. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker. Ziel: klarer anaerober Reiz, nicht als lange VO2-Einheit ausfahren."
       },
       {
         "day": "Freitag",
@@ -2951,7 +2951,7 @@ var PLAN = [
   {
     "week": 14,
     "phase": "Performance",
-    "focus": "Längere Intervalle, bessere Ermüdungsresistenz, rennspezifische Over/Unders.",
+    "focus": "Längere Intervalle, bessere Ermüdungsresistenz, rennspezifische Over/Unders. Ergänzend: kurzer anaerober Reiz statt zweiter hoch-aerober Einheit.",
     "days": [
       {
         "day": "Montag",
@@ -3123,11 +3123,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "Anaerobe Kurzintervalle",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "4×12 min Over/Under: 2 min @105% (266 W) + 2 min @95% (240 W), 6 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "Anaerobe Kurzintervalle: 6–8×30 s sehr hart (ca. 130–150% FTP / RPE 9–10), jeweils 3 min sehr locker rollen. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker. Ziel: klarer anaerober Reiz, nicht als lange VO2-Einheit ausfahren."
       },
       {
         "day": "Freitag",
@@ -3563,7 +3563,7 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "Locker / frei",
         "priority": 1,
         "hard": true,
         "key": true,
@@ -3731,20 +3731,30 @@ function missedReasonStats(weekNo){
   }
   return stats;
 }
+function isAnaerobicDay(day){
+  return day && day.title && day.title.indexOf("Anaerobe")>=0;
+}
+function hardRideLabel(day){
+  return isAnaerobicDay(day) ? "anaerobe Kurzintervalle" : "VO2/Over-Unders";
+}
 function missedRecommendation(day,reason){
   var dname=day.day;
+  var hardLabel=hardRideLabel(day);
   if(reason==="krank") return "Krankheit: Nicht nachholen. Erst 24–48 h symptomfrei und dann locker einsteigen. Harte Radintervalle diese Woche streichen oder stark reduzieren.";
   if(reason==="schmerz") return "Schmerzen: Nicht nachholen. Belastung reduzieren, Ursache beobachten und bei wiederkehrenden Schmerzen die betroffene Bewegung ersetzen.";
   if(reason==="muede"){
-    if(dname==="Dienstag") return "Müdigkeit/Beine schwer: Schwelle nicht nachholen. Heute Erholung oder 30–45 min Zone 1/2. Donnerstag VO2 nur fahren, wenn Recovery wieder grün/gelb ist; sonst durch locker ersetzen.";
-    if(dname==="Donnerstag") return "Müdigkeit/Beine schwer: VO2/Over-Unders streichen. Nicht am Freitag nachholen. Samstag nur locker/gekürzt, wenn die Beine wieder frisch sind.";
+    if(dname==="Dienstag") return "Müdigkeit/Beine schwer: Schwelle nicht nachholen. Heute Erholung oder 30–45 min Zone 1/2. Donnerstag nur fahren, wenn Recovery wieder grün/gelb ist; sonst durch locker ersetzen.";
+    if(dname==="Donnerstag") return "Müdigkeit/Beine schwer: "+hardLabel+" streichen. Nicht am Freitag nachholen. Samstag nur locker/gekürzt, wenn die Beine wieder frisch sind.";
     if(dname==="Montag" || dname==="Mittwoch") return "Müdigkeit/Beine schwer: Kraft nicht nachholen. Nächste Krafteinheit normal fortsetzen, aber Gewichte halten und keine Progression erzwingen.";
     if(dname==="Freitag") return "Müdigkeit/Beine schwer: Conditioning/Lauf streichen. Erholung priorisieren, keine Ersatzbelastung.";
     if(dname==="Samstag") return "Müdigkeit/Beine schwer: Lange Ausfahrt nicht kompensieren. Nächste Woche normal oder leicht reduziert starten.";
     return "Müdigkeit/Beine schwer: Nicht nachholen. Als Recovery-Signal werten, Umfang reduzieren und keine zusätzliche Intensität einbauen.";
   }
-  if(dname==="Dienstag") return "Dienstag Schwelle verpasst: Wenn du dich gut fühlst, auf Mittwoch schieben und Ganzkörper B kürzen/streichen. Donnerstag VO2 dann streichen oder durch 45–60 min Zone 2 ersetzen. Nicht Schwelle und VO2 direkt hintereinander nachholen.";
-  if(dname==="Donnerstag") return "Donnerstag VO2/Over-Unders verpasst: Nicht am Freitag nachholen. Optional Samstag 2–3 kurze Aktivierungen in die Ausfahrt einbauen oder diese Einheit streichen.";
+  if(dname==="Dienstag") return "Dienstag Schwelle verpasst: Wenn du dich gut fühlst, auf Mittwoch schieben und Ganzkörper B kürzen/streichen. Donnerstag dann nur fahren, wenn mindestens 24 h Erholung dazwischen liegen; sonst durch 45–60 min Zone 2 ersetzen. Nicht Schwelle und zweite harte Radeinheit direkt hintereinander nachholen.";
+  if(dname==="Donnerstag"){
+    if(isAnaerobicDay(day)) return "Donnerstag anaerobe Kurzintervalle verpasst: Nicht nachholen. Optional am Samstag 3–4 kurze Aktivierungen à 10–15 s in die Zone-2-Ausfahrt einbauen oder die Einheit komplett streichen.";
+    return "Donnerstag VO2/Over-Unders verpasst: Nicht am Freitag nachholen. Optional Samstag 2–3 kurze Aktivierungen in die Ausfahrt einbauen oder diese Einheit streichen.";
+  }
   if(dname==="Samstag") return "Optionale lange Ausfahrt verpasst: Kein Problem. Nicht kompensieren. Nächste Woche normal weitertrainieren.";
   if(dname==="Freitag") return "Athletic Conditioning/Lauf verpasst: Einfach streichen. Nicht nachholen.";
   return "Nicht nachholen, wenn dadurch zwei harte Tage hintereinander entstehen. Priorität bleiben Dienstag und Donnerstag.";
@@ -3806,7 +3816,7 @@ function recoveryStatus(meta){
   }
 
   if(score<=-5) return {level:"red",title:"🔴 Deload/Reduktion sinnvoll",text:"Harte Einheiten stark reduzieren oder Deload vorziehen.",reasons:reasons};
-  if(score<=-2) return {level:"orange",title:"🟠 Umfang reduzieren",text:"Nächste Woche ca. 20–30 % weniger Umfang. VO2 nur fahren, wenn du dich frisch fühlst.",reasons:reasons};
+  if(score<=-2) return {level:"orange",title:"🟠 Umfang reduzieren",text:"Nächste Woche ca. 20–30 % weniger Umfang. Die zweite harte Radeinheit nur fahren, wenn du dich frisch fühlst.",reasons:reasons};
   if(score<=1) return {level:"yellow",title:"🟡 Normal, aber kontrolliert",text:"Plan normal starten, Zusatzumfang weglassen und Intervalle eher am unteren Ende fahren.",reasons:reasons};
   return {level:"green",title:"🟢 Voll belastbar",text:"Plan wie vorgesehen. Progression im Krafttraining möglich.",reasons:reasons};
 }
@@ -3836,7 +3846,7 @@ function renderWeeklyReview(){
   if(rec.level==="red") cls="recoveryStop";
 
   var next="Nächste Woche normal fortsetzen.";
-  if(rec.level==="red") next="Deload oder deutliche Reduktion vorziehen. Keine harte VO2-Einheit.";
+  if(rec.level==="red") next="Deload oder deutliche Reduktion vorziehen. Keine harte zweite Radeinheit.";
   else if(rec.level==="orange") next="Nächste Woche Umfang um 20–30 % reduzieren. Kraftgewichte halten, keine erzwungene Progression.";
   else if(done/Math.max(total,1)<0.5) next="Nicht kompensieren. Mit den Key-Sessions neu starten.";
   else if(rec.level==="green") next="Normale Woche inklusive Kraftprogression möglich.";
@@ -3889,7 +3899,7 @@ function renderMetrics(){
 }
 function resetWeek(){ if(!confirm("Diese Woche wirklich zurücksetzen?"))return; var week=PLAN[selectedWeek-1]; for(var i=0;i<week.days.length;i++){ delete state.done[dayKey(selectedWeek,i)]; delete state.missed[dayKey(selectedWeek,i)]; delete state.missedReason[dayKey(selectedWeek,i)]; } saveState(); render(); }
 function clearAll(){ if(!confirm("Wirklich ALLE gespeicherten Daten löschen?"))return; if(!confirm("Sicher? Dies löscht Haken, Notizen, Gewichte, Metriken und Anpassungen."))return; state={done:{},missed:{},missedReason:{},exercise:{},meta:{},metrics:[]}; localStorage.removeItem(LS_KEY); saveState(); render(); }
-function exportBackup(){ var payload={app:"Hybrid Athlete 16 Wochen",version:"4.0-Modul-1B-Recovery-UI",exportedAt:new Date().toISOString(),state:state}; var blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}); var url=URL.createObjectURL(blob); var a=document.createElement("a"); var date=today(); a.href=url; a.download="hybrid-athlete-backup-"+date+".json"; document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function(){URL.revokeObjectURL(url);},1000); byId("backupStatus").textContent="Backup exportiert."; }
+function exportBackup(){ var payload={app:"Hybrid Athlete 16 Wochen",version:"4.0-Modul-1B-Recovery-UI-v3-Anaerob",exportedAt:new Date().toISOString(),state:state}; var blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}); var url=URL.createObjectURL(blob); var a=document.createElement("a"); var date=today(); a.href=url; a.download="hybrid-athlete-backup-"+date+".json"; document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function(){URL.revokeObjectURL(url);},1000); byId("backupStatus").textContent="Backup exportiert."; }
 function importBackup(evt){ var file=evt.target.files[0]; if(!file)return; var reader=new FileReader(); reader.onload=function(){ try{ var payload=JSON.parse(reader.result); if(!payload.state){alert("Keine gültige Backup-Datei.");return;} state=payload.state; if(!state.done)state.done={}; if(!state.missed)state.missed={}; if(!state.missedReason)state.missedReason={}; if(!state.exercise)state.exercise={}; if(!state.meta)state.meta={}; if(!state.metrics)state.metrics=[]; saveState(); render(); alert("Backup importiert."); }catch(e){ alert("Import fehlgeschlagen: "+e.message); } }; reader.readAsText(file); }
 window.onload=function(){
   byId("weekSelect").value=String(selectedWeek);
