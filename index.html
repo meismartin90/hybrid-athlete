@@ -56,7 +56,7 @@
 </style>
 </head>
 <body>
-<header><h1>Hybrid Athlete Plan</h1><div class="small">Martin · 16 Wochen · FTP 253 W → 270–275 W · v4.0 Modul 1B + Recovery UI v3</div></header>
+<header><h1>Hybrid Athlete Plan</h1><div class="small">Martin · 16 Wochen · FTP 253 W → 270–275 W · v4.0 Modul 1B + Recovery UI v4</div></header>
 
 <div class="card dashboard"><div class="grid"><div class="stat"><span class="small">Woche</span><b id="statWeek">1/16</b></div><div class="stat"><span class="small">Erledigt</span><b id="statDone">0%</b></div><div class="stat"><span class="small">FTP aktuell</span><b id="statFtp">253 W</b></div><div class="stat"><span class="small">FTP Ziel</span><b id="statFtpTarget">270–275 W</b></div></div><h3>Fortschritt</h3><div class="progress"><div id="progressBar"></div></div></div>
 
@@ -84,14 +84,14 @@
 
 <div class="card backup"><h2>Backup</h2><p>Die App speichert lokal im Browser. Für Sicherung: <b>Backup exportieren</b> antippen und JSON-Datei speichern. Über <b>Backup importieren</b> wiederherstellen.</p><button class="blue" id="exportBtn" type="button">Backup exportieren</button> <button class="secondary" id="importBtn" type="button">Backup importieren</button><input id="importFile" type="file" accept=".json,application/json" style="display:none"><p class="small" id="backupStatus">Noch kein Backup exportiert.</p></div>
 
-<div class="footer">Version 4.0 Modul 1B + Recovery UI v3 · Anaerobe Donnerstage · Keine externen Abhängigkeiten</div>
+<div class="footer">Version 4.0 Modul 1B + Recovery UI v4 · FTP-optimierter Radplan · dynamische Wattbereiche · Keine externen Abhängigkeiten</div>
 
 <script>
 var PLAN = [
   {
     "week": 1,
     "phase": "Foundation",
-    "focus": "Rhythmus etablieren, Technik sauber halten, FTP-Basis legen.",
+    "focus": "Radfokus: kontrollierte FTP-Zeit + 4×8 als VO2-/FTP-Booster.",
     "days": [
       {
         "day": "Montag",
@@ -171,11 +171,11 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Kontrollierte FTP-/Sweetspot-Akkumulation",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "3×10 min @95–100% FTP (240–253 W), 5 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "3×10 min @92–95% FTP, 5 min locker. Ziel: sauberer Rhythmus, nicht testen. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
@@ -263,11 +263,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "4×8 min VO2-/FTP-Booster",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "5×4 min @110% FTP (278 W), 3 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "4×8 min @105–108% FTP, 4 min locker. Iso-Effort: alle vier Wiederholungen möglichst gleichmäßig, nicht zu hart starten. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
@@ -291,11 +291,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "90–120 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "90–120 min Zone 2 / niedrig aerob. Wirklich locker und gleichmäßig, keine versteckten Tempoabschnitte. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -311,7 +311,7 @@ var PLAN = [
   {
     "week": 2,
     "phase": "Foundation",
-    "focus": "Rhythmus etablieren, Technik sauber halten, FTP-Basis legen. Ergänzend: kurzer anaerober Reiz statt zweiter hoch-aerober Einheit.",
+    "focus": "Radfokus: kontrollierte FTP-Zeit + Laktat-Kinetik statt zweiter hoch-aerober Einheit.",
     "days": [
       {
         "day": "Montag",
@@ -391,11 +391,11 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Kontrollierte FTP-/Sweetspot-Akkumulation",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "4×8 min @95–100% FTP (240–253 W), 4–5 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "4×8 min @92–96% FTP, 4–5 min locker. Ziel: kontrollierte Zeit nahe FTP sammeln, nicht maximal fahren. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
@@ -483,11 +483,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "Anaerobe Kurzintervalle",
+        "title": "Laktat-Kinetik 30/4",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "Anaerobe Kurzintervalle: 6–8×30 s sehr hart (ca. 130–150% FTP / RPE 9–10), jeweils 3 min sehr locker rollen. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker. Ziel: klarer anaerober Reiz, nicht als lange VO2-Einheit ausfahren."
+        "details": "8×30 s @130–150% FTP / RPE 9–10, jeweils 4 min sehr locker. Ziel: kurz Laktat produzieren, dann wieder aerob verstoffwechseln. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker."
       },
       {
         "day": "Freitag",
@@ -511,11 +511,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "90–120 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "90–120 min Zone 2 / niedrig aerob. Wirklich locker und gleichmäßig, keine versteckten Tempoabschnitte. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -531,7 +531,7 @@ var PLAN = [
   {
     "week": 3,
     "phase": "Foundation",
-    "focus": "Rhythmus etablieren, Technik sauber halten, FTP-Basis legen.",
+    "focus": "Radfokus: kontrollierte FTP-Zeit + 30/15er als starker FTP-/VO2-Booster.",
     "days": [
       {
         "day": "Montag",
@@ -611,11 +611,11 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Kontrollierte FTP-/Sweetspot-Akkumulation",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "3×12 min @95–100% FTP (240–253 W), 5 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "3×12 min @92–96% FTP, 5 min locker. Ziel: gleichmäßig, kontrolliert, keine Mini-FTP-Tests. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
@@ -703,11 +703,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "3×13×30/15 FTP-Booster",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "5×5 min @108% FTP (273 W), 4 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "3 Sätze à 13×30/15: 30 s @120–125% FTP, 15 s sehr locker. 3:30 min locker zwischen den Sätzen. Ziel: viel Zeit mit hoher Sauerstoffaufnahme sammeln, Iso-Effort über alle Wiederholungen. Warm-up: 15 min locker, 3×30 s hohe Kadenz. Cool-down: 10–15 min locker."
       },
       {
         "day": "Freitag",
@@ -731,11 +731,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "90–120 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "90–120 min Zone 2 / niedrig aerob. Wirklich locker und gleichmäßig, keine versteckten Tempoabschnitte. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -751,7 +751,7 @@ var PLAN = [
   {
     "week": 4,
     "phase": "Foundation",
-    "focus": "Rhythmus etablieren, Technik sauber halten, FTP-Basis legen. Ergänzend: kurzer anaerober Reiz statt zweiter hoch-aerober Einheit.",
+    "focus": "Radfokus: kontrollierte FTP-Zeit + Laktat-Kinetik.",
     "days": [
       {
         "day": "Montag",
@@ -831,11 +831,11 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Kontrollierte FTP-/Sweetspot-Akkumulation",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "2×15 min @95–100% FTP (240–253 W), 6 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "2×15 min @94–97% FTP, 6 min locker. Ziel: längere kontrollierte Blöcke, nicht überziehen. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
@@ -923,11 +923,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "Anaerobe Kurzintervalle",
+        "title": "Laktat-Kinetik 30/4",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "Anaerobe Kurzintervalle: 6–8×30 s sehr hart (ca. 130–150% FTP / RPE 9–10), jeweils 3 min sehr locker rollen. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker. Ziel: klarer anaerober Reiz, nicht als lange VO2-Einheit ausfahren."
+        "details": "8×30 s @130–150% FTP / RPE 9–10, jeweils 4 min sehr locker. Ziel: kurz Laktat produzieren, dann wieder aerob verstoffwechseln. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker."
       },
       {
         "day": "Freitag",
@@ -951,11 +951,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "90–120 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "90–120 min Zone 2 / niedrig aerob. Wirklich locker und gleichmäßig, keine versteckten Tempoabschnitte. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -971,7 +971,7 @@ var PLAN = [
   {
     "week": 5,
     "phase": "Deload",
-    "focus": "Erholung, Frische, Anpassung zulassen.",
+    "focus": "Deload: Belastung reduzieren, Frische aufbauen.",
     "days": [
       {
         "day": "Montag",
@@ -1051,10 +1051,10 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Locker / Zone 2",
         "priority": 1,
-        "hard": true,
-        "key": true,
+        "hard": false,
+        "key": false,
         "details": "60 min Zone 2, sehr locker, keine Intervalle. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
@@ -1145,9 +1145,9 @@ var PLAN = [
         "type": "Rad",
         "title": "Locker / Technik",
         "priority": 1,
-        "hard": true,
-        "key": true,
-        "details": "45–60 min locker, 3×10 s Technik-Antritte optional. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "hard": false,
+        "key": false,
+        "details": "45–60 min locker, 3×10 s Technik-Antritte optional. Keine harte Intensität. Warm-up: 10–15 min locker. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
@@ -1171,11 +1171,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "60–90 min locker Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "60–90 min locker Zone 2. Nur wenn es gut passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -1191,7 +1191,7 @@ var PLAN = [
   {
     "week": 6,
     "phase": "Build",
-    "focus": "Schwellenvolumen erhöhen und VO2max gezielt verbessern.",
+    "focus": "Radfokus: längere kontrollierte FTP-Zeit + 4×8 als VO2-/FTP-Booster.",
     "days": [
       {
         "day": "Montag",
@@ -1271,11 +1271,11 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Kontrollierte FTP-/Sweetspot-Akkumulation",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "4×10 min @95–100% FTP (240–253 W), 5 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "4×10 min @92–96% FTP, 5 min locker. Ziel: viel kontrollierte Zeit nahe FTP sammeln, gleichmäßig fahren. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
@@ -1363,11 +1363,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "4×8 min VO2-/FTP-Booster",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "4×10 min Over/Under: 1 min @105% (266 W) + 1 min @95% (240 W), 5 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "4×8 min @105–108% FTP, 4 min locker. Iso-Effort: alle vier Wiederholungen möglichst gleichmäßig, nicht zu hart starten. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
@@ -1391,11 +1391,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "120–150 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "120–150 min Zone 2 / niedrig aerob. Wirklich locker und gleichmäßig, keine versteckten Tempoabschnitte. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -1411,7 +1411,7 @@ var PLAN = [
   {
     "week": 7,
     "phase": "Build",
-    "focus": "Schwellenvolumen erhöhen und VO2max gezielt verbessern. Ergänzend: kurzer anaerober Reiz statt zweiter hoch-aerober Einheit.",
+    "focus": "Radfokus: kontrollierte Schwelle + Laktat-Kinetik.",
     "days": [
       {
         "day": "Montag",
@@ -1491,11 +1491,11 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Kontrollierte FTP-/Sweetspot-Akkumulation",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "3×15 min @95–100% FTP (240–253 W), 6 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "3×15 min @92–97% FTP, 6 min locker. Ziel: Zeit nahe FTP sammeln, nicht maximal testen. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
@@ -1583,11 +1583,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "Anaerobe Kurzintervalle",
+        "title": "Laktat-Kinetik 30/4",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "Anaerobe Kurzintervalle: 6–8×30 s sehr hart (ca. 130–150% FTP / RPE 9–10), jeweils 3 min sehr locker rollen. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker. Ziel: klarer anaerober Reiz, nicht als lange VO2-Einheit ausfahren."
+        "details": "8×30 s @130–150% FTP / RPE 9–10, jeweils 4 min sehr locker. Ziel: kurz Laktat produzieren, dann wieder aerob verstoffwechseln. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker."
       },
       {
         "day": "Freitag",
@@ -1611,11 +1611,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "120–150 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "120–150 min Zone 2 / niedrig aerob. Wirklich locker und gleichmäßig, keine versteckten Tempoabschnitte. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -1631,7 +1631,7 @@ var PLAN = [
   {
     "week": 8,
     "phase": "Build",
-    "focus": "Schwellenvolumen erhöhen und VO2max gezielt verbessern.",
+    "focus": "Radfokus: längere FTP-Blöcke + 30/15er als starker FTP-/VO2-Booster.",
     "days": [
       {
         "day": "Montag",
@@ -1711,11 +1711,11 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Kontrollierte FTP-/Sweetspot-Akkumulation",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "2×20 min @95–100% FTP (240–253 W), 8 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "2×20 min @92–96% FTP, 8 min locker. Ziel: lange kontrollierte Blöcke, kein All-out. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
@@ -1803,11 +1803,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "3×13×30/15 FTP-Booster",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "5×5 min @108% FTP (273 W), 4 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "3 Sätze à 13×30/15: 30 s @120–125% FTP, 15 s sehr locker. 3:30 min locker zwischen den Sätzen. Ziel: viel Zeit mit hoher Sauerstoffaufnahme sammeln, Iso-Effort über alle Wiederholungen. Warm-up: 15 min locker, 3×30 s hohe Kadenz. Cool-down: 10–15 min locker."
       },
       {
         "day": "Freitag",
@@ -1831,11 +1831,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "120–150 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "120–150 min Zone 2 / niedrig aerob. Wirklich locker und gleichmäßig, keine versteckten Tempoabschnitte. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -1851,7 +1851,7 @@ var PLAN = [
   {
     "week": 9,
     "phase": "Build",
-    "focus": "Schwellenvolumen erhöhen und VO2max gezielt verbessern. Ergänzend: kurzer anaerober Reiz statt zweiter hoch-aerober Einheit.",
+    "focus": "Radfokus: spezifischer FTP-Block + Laktat-Kinetik.",
     "days": [
       {
         "day": "Montag",
@@ -1931,11 +1931,11 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Kontrollierte FTP-/Sweetspot-Akkumulation",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "3×15 min @97–100% FTP (245–253 W), 6 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "3×15 min @95–98% FTP, 6 min locker. Ziel: etwas spezifischer, aber weiterhin kontrolliert und gleichmäßig. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
@@ -2023,11 +2023,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "Anaerobe Kurzintervalle",
+        "title": "Laktat-Kinetik 30/4",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "Anaerobe Kurzintervalle: 6–8×30 s sehr hart (ca. 130–150% FTP / RPE 9–10), jeweils 3 min sehr locker rollen. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker. Ziel: klarer anaerober Reiz, nicht als lange VO2-Einheit ausfahren."
+        "details": "8×30 s @130–150% FTP / RPE 9–10, jeweils 4 min sehr locker. Ziel: kurz Laktat produzieren, dann wieder aerob verstoffwechseln. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker."
       },
       {
         "day": "Freitag",
@@ -2051,11 +2051,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "120–150 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "120–150 min Zone 2 / niedrig aerob. Wirklich locker und gleichmäßig, keine versteckten Tempoabschnitte. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -2071,7 +2071,7 @@ var PLAN = [
   {
     "week": 10,
     "phase": "Deload",
-    "focus": "Erholung, Frische, Anpassung zulassen.",
+    "focus": "Deload: Belastung reduzieren, Frische aufbauen.",
     "days": [
       {
         "day": "Montag",
@@ -2151,11 +2151,11 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Locker / Zone 2",
         "priority": 1,
-        "hard": true,
-        "key": true,
-        "details": "60 min Zone 2, hohe Kadenz, locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "hard": false,
+        "key": false,
+        "details": "60 min Zone 2, hohe Kadenz, locker. Keine Intervalle. Warm-up: 10–15 min locker. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
@@ -2245,9 +2245,9 @@ var PLAN = [
         "type": "Rad",
         "title": "Locker / Technik",
         "priority": 1,
-        "hard": true,
-        "key": true,
-        "details": "45 min locker, keine harten Reize. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "hard": false,
+        "key": false,
+        "details": "45 min locker, keine harten Reize. Optional 3×10 s Technik-Antritte. Warm-up: 10–15 min locker. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
@@ -2271,11 +2271,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "60–90 min locker Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "60–90 min locker Zone 2. Nur wenn es gut passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -2291,7 +2291,7 @@ var PLAN = [
   {
     "week": 11,
     "phase": "Performance",
-    "focus": "Längere Intervalle, bessere Ermüdungsresistenz, rennspezifische Over/Unders.",
+    "focus": "Radfokus: starker spezifischer Block + 4×8 als VO2-/FTP-Booster.",
     "days": [
       {
         "day": "Montag",
@@ -2371,11 +2371,11 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Kontrollierte FTP-/Sweetspot-Akkumulation",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "2×20 min @98–100% FTP (248–253 W), 8 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "2×20 min @95–98% FTP, 8 min locker. Ziel: spezifische FTP-Arbeit ohne Überziehen. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
@@ -2463,11 +2463,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "4×8 min VO2-/FTP-Booster",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "5×5 min @108% FTP (273 W), 4 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "4×8 min @105–108% FTP, 4 min locker. Iso-Effort: alle vier Wiederholungen möglichst gleichmäßig, nicht zu hart starten. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
@@ -2491,11 +2491,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "150–180 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "150–180 min Zone 2 / niedrig aerob. Wirklich locker und gleichmäßig, keine versteckten Tempoabschnitte. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -2511,7 +2511,7 @@ var PLAN = [
   {
     "week": 12,
     "phase": "Performance",
-    "focus": "Längere Intervalle, bessere Ermüdungsresistenz, rennspezifische Over/Unders. Ergänzend: kurzer anaerober Reiz statt zweiter hoch-aerober Einheit.",
+    "focus": "Radfokus: viel kontrollierte FTP-Zeit + Laktat-Kinetik.",
     "days": [
       {
         "day": "Montag",
@@ -2591,11 +2591,11 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Kontrollierte FTP-/Sweetspot-Akkumulation",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "3×15 min @98–100% FTP (248–253 W), 6 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "3×16 min @94–98% FTP, 6 min locker. Ziel: hohe Zeit nahe FTP, aber kontrolliert. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
@@ -2683,11 +2683,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "Anaerobe Kurzintervalle",
+        "title": "Laktat-Kinetik 30/4",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "Anaerobe Kurzintervalle: 6–8×30 s sehr hart (ca. 130–150% FTP / RPE 9–10), jeweils 3 min sehr locker rollen. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker. Ziel: klarer anaerober Reiz, nicht als lange VO2-Einheit ausfahren."
+        "details": "8×30 s @130–150% FTP / RPE 9–10, jeweils 4 min sehr locker. Ziel: kurz Laktat produzieren, dann wieder aerob verstoffwechseln. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker."
       },
       {
         "day": "Freitag",
@@ -2711,11 +2711,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "150–180 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "150–180 min Zone 2 / niedrig aerob. Wirklich locker und gleichmäßig, keine versteckten Tempoabschnitte. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -2731,7 +2731,7 @@ var PLAN = [
   {
     "week": 13,
     "phase": "Performance",
-    "focus": "Längere Intervalle, bessere Ermüdungsresistenz, rennspezifische Over/Unders.",
+    "focus": "Radfokus: längere FTP-Blöcke + 30/15er als starker FTP-/VO2-Booster.",
     "days": [
       {
         "day": "Montag",
@@ -2811,11 +2811,11 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Kontrollierte FTP-/Sweetspot-Akkumulation",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "2×20 min @100% FTP (253 W), 8 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "2×22 min @95–98% FTP, 8 min locker. Ziel: lange spezifische Blöcke, sauber halten. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
@@ -2903,11 +2903,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "3×13×30/15 FTP-Booster",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "5×4 min @110% FTP (278 W), 3 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "3 Sätze à 13×30/15: 30 s @120–125% FTP, 15 s sehr locker. 3:30 min locker zwischen den Sätzen. Ziel: viel Zeit mit hoher Sauerstoffaufnahme sammeln, Iso-Effort über alle Wiederholungen. Warm-up: 15 min locker, 3×30 s hohe Kadenz. Cool-down: 10–15 min locker."
       },
       {
         "day": "Freitag",
@@ -2931,11 +2931,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "150–180 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "150–180 min Zone 2 / niedrig aerob. Wirklich locker und gleichmäßig, keine versteckten Tempoabschnitte. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -2951,7 +2951,7 @@ var PLAN = [
   {
     "week": 14,
     "phase": "Performance",
-    "focus": "Längere Intervalle, bessere Ermüdungsresistenz, rennspezifische Over/Unders. Ergänzend: kurzer anaerober Reiz statt zweiter hoch-aerober Einheit.",
+    "focus": "Radfokus: kontrollierte FTP-Zeit + Laktat-Kinetik.",
     "days": [
       {
         "day": "Montag",
@@ -3031,11 +3031,11 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Kontrollierte FTP-/Sweetspot-Akkumulation",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "3×18 min @95–100% FTP (240–253 W), 7 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "3×18 min @92–97% FTP, 7 min locker. Ziel: viel Zeit, aber nicht zu hart; Ermüdung kontrollieren. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
@@ -3123,11 +3123,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "Anaerobe Kurzintervalle",
+        "title": "Laktat-Kinetik 30/4",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "Anaerobe Kurzintervalle: 6–8×30 s sehr hart (ca. 130–150% FTP / RPE 9–10), jeweils 3 min sehr locker rollen. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker. Ziel: klarer anaerober Reiz, nicht als lange VO2-Einheit ausfahren."
+        "details": "8×30 s @130–150% FTP / RPE 9–10, jeweils 4 min sehr locker. Ziel: kurz Laktat produzieren, dann wieder aerob verstoffwechseln. Warm-up: 15 min locker, 3×30 s hohe Kadenz, 2×10 s Sprint-Vorbereitung. Cool-down: 10–15 min locker."
       },
       {
         "day": "Freitag",
@@ -3151,11 +3151,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "150–180 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "150–180 min Zone 2 / niedrig aerob. Wirklich locker und gleichmäßig, keine versteckten Tempoabschnitte. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -3171,7 +3171,7 @@ var PLAN = [
   {
     "week": 15,
     "phase": "Performance",
-    "focus": "Längere Intervalle, bessere Ermüdungsresistenz, rennspezifische Over/Unders.",
+    "focus": "Radfokus: Druck etwas rausnehmen, Form stabilisieren.",
     "days": [
       {
         "day": "Montag",
@@ -3251,11 +3251,11 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "Kontrollierte FTP-/Sweetspot-Akkumulation",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "2×25 min @95–98% FTP (240–248 W), 8 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "2×20 min @92–95% FTP, 8 min locker. Ziel: kontrolliert, nicht mehr erzwingen. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Mittwoch",
@@ -3343,11 +3343,11 @@ var PLAN = [
       {
         "day": "Donnerstag",
         "type": "Rad",
-        "title": "VO2max / Over-Unders",
+        "title": "Kontrollierte 3×8 min",
         "priority": 1,
         "hard": true,
         "key": true,
-        "details": "5×5 min @108% FTP (273 W), 4 min locker. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "details": "3×8 min @105% FTP, 4 min locker. Ziel: kurzer Qualitätsreiz, nicht all-out. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
@@ -3371,11 +3371,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "150–180 min Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "90–120 min Zone 2 / niedrig aerob. Wirklich locker und gleichmäßig, keine versteckten Tempoabschnitte. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -3391,7 +3391,7 @@ var PLAN = [
   {
     "week": 16,
     "phase": "Test",
-    "focus": "Leistung testen, Plan auswerten, nächste Phase festlegen.",
+    "focus": "Testwoche: ausgeruht testen.",
     "days": [
       {
         "day": "Montag",
@@ -3471,7 +3471,7 @@ var PLAN = [
       {
         "day": "Dienstag",
         "type": "Rad",
-        "title": "FTP / Schwelle",
+        "title": "FTP-Test / 20-min-Test",
         "priority": 1,
         "hard": true,
         "key": true,
@@ -3565,9 +3565,9 @@ var PLAN = [
         "type": "Rad",
         "title": "Locker / frei",
         "priority": 1,
-        "hard": true,
-        "key": true,
-        "details": "45–60 min sehr locker oder komplett frei. Warm-up: 10–15 min locker, 3×30 s hohe Kadenz. Cool-down: 10 min locker."
+        "hard": false,
+        "key": false,
+        "details": "45–60 min sehr locker oder komplett frei. Keine harte Intensität. Warm-up: 10–15 min locker. Cool-down: 10 min locker."
       },
       {
         "day": "Freitag",
@@ -3591,11 +3591,11 @@ var PLAN = [
       {
         "day": "Samstag",
         "type": "Rad optional",
-        "title": "Optionale lange Ausfahrt",
+        "title": "Optionale Zone-2-Ausfahrt",
         "priority": 4,
         "hard": false,
         "key": false,
-        "details": "60–90 min locker Zone 2. Nur wenn es gut in Familie/Alltag passt. Kein schlechtes Gewissen, wenn sie ausfällt."
+        "details": "60–90 min locker Zone 2. Nur wenn es gut passt. Kein schlechtes Gewissen, wenn sie ausfällt."
       },
       {
         "day": "Sonntag",
@@ -3630,6 +3630,19 @@ function today() { return new Date().toISOString().slice(0,10); }
 function saveState() { try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch(e) { alert("Speichern fehlgeschlagen: " + e.message); } updateStats(); updateAdaptiveAdvice(); renderTrafficLight(); renderMetrics(); renderWeeklyReview(); }
 function getWeekMetric(w){ var m=state.meta[weekKey(w)]||{}; var ftp=parseFloat(m.ftp||""); var weight=parseFloat(m.weight||""); if(ftp||weight) return {week:w,ftp:ftp||null,weight:weight||null}; return null; }
 function currentMetricForWeek(w){ var best=null; for(var i=1;i<=w;i++){ var m=getWeekMetric(i); if(m&&(m.ftp||m.weight)) best=m; } if(best) return best; var lm=lastMetric(); if(lm) return {week:null,ftp:lm.ftp||null,weight:lm.weight||null}; return null; }
+function ftpForWeek(w){ var cur=currentMetricForWeek(w); if(cur&&cur.ftp) return parseFloat(cur.ftp); return 253; }
+function percentDetailsWithWatts(details,w){
+  var ftp=ftpForWeek(w);
+  if(!ftp) return details;
+  return String(details).replace(/(\d{2,3})(?:[–-](\d{2,3}))?%\s*FTP/g,function(match,a,b){
+    var low=parseInt(a,10);
+    var high=b?parseInt(b,10):low;
+    var wLow=Math.round(ftp*low/100);
+    var wHigh=Math.round(ftp*high/100);
+    if(high===low) return low+"% FTP ("+wLow+" W)";
+    return low+"–"+high+"% FTP ("+wLow+"–"+wHigh+" W)";
+  });
+}
 function updateStats() { var total=0, done=0; for(var i=0;i<PLAN.length;i++){ for(var j=0;j<PLAN[i].days.length;j++){ if(PLAN[i].days[j].type!=="Ruhe"){ total++; if(state.done[dayKey(PLAN[i].week,j)]) done++; } } } var pct=total?Math.round(done/total*100):0; byId("statDone").textContent=pct+"%"; byId("progressBar").style.width=pct+"%"; byId("statWeek").textContent=selectedWeek+"/16"; if(byId("statFtpTarget")) byId("statFtpTarget").textContent="270–275 W"; var cur=currentMetricForWeek(selectedWeek); byId("statFtp").textContent=(cur&&cur.ftp)?cur.ftp+" W":"253 W"; }
 function lastMetric(){ if(!state.metrics||!state.metrics.length) return null; return state.metrics[state.metrics.length-1]; }
 function renderTabs(week){ var tabs=byId("dayTabs"); tabs.innerHTML=""; for(var i=0;i<week.days.length;i++){ var b=document.createElement("button"); b.type="button"; b.className="tab"+(i===selectedDay?" active":""); b.textContent=week.days[i].day; (function(idx){ b.onclick=function(){ selectedDay=idx; render(); }; })(i); tabs.appendChild(b); } }
@@ -3665,7 +3678,7 @@ function render(){
   var note=state.meta[dk+"_note"]||"";
   var reason=state.missedReason[dk]||"";
   var out='<div class="card"><span class="badge">'+esc(week.phase)+'</span><h2>Woche '+week.week+': '+esc(week.focus)+'</h2></div>';
-  out+='<div class="card day '+(isDone?'done':'')+(isMissed?' missed':'')+'"><div class="row"><div><span class="badge">Prio '+esc(d.priority||"-")+' · '+esc(d.type)+'</span><h2>'+esc(d.day)+': '+esc(d.title)+'</h2></div><input class="checkbox" id="doneBox" type="checkbox" '+(isDone?'checked':'')+'></div><p>'+esc(d.details)+'</p>'+exerciseHtml(d.exercises,week.week,selectedDay)+conditioningHtml(d.conditioning);
+  out+='<div class="card day '+(isDone?'done':'')+(isMissed?' missed':'')+'"><div class="row"><div><span class="badge">Prio '+esc(d.priority||"-")+' · '+esc(d.type)+'</span><h2>'+esc(d.day)+': '+esc(d.title)+'</h2></div><input class="checkbox" id="doneBox" type="checkbox" '+(isDone?'checked':'')+'></div><p>'+esc(percentDetailsWithWatts(d.details,week.week))+'</p>'+exerciseHtml(d.exercises,week.week,selectedDay)+conditioningHtml(d.conditioning);
   if(d.type!=="Ruhe"){
     out+='<h3>Training verpasst?</h3><select id="missedReason"><option value="">Nein / gemacht</option><option value="zeit">Keine Zeit / Familie / Arbeit</option><option value="muede">Müde / Beine schwer</option><option value="krank">Krank / Erkältung</option><option value="schmerz">Schmerzen</option></select>';
   }
@@ -3732,10 +3745,19 @@ function missedReasonStats(weekNo){
   return stats;
 }
 function isAnaerobicDay(day){
-  return day && day.title && day.title.indexOf("Anaerobe")>=0;
+  return day && day.title && (day.title.indexOf("Laktat-Kinetik")>=0 || day.title.indexOf("30/4")>=0);
+}
+function isThirtyFifteenDay(day){
+  return day && day.title && day.title.indexOf("30/15")>=0;
+}
+function isFourByEightDay(day){
+  return day && day.title && day.title.indexOf("4×8")>=0;
 }
 function hardRideLabel(day){
-  return isAnaerobicDay(day) ? "anaerobe Kurzintervalle" : "VO2/Over-Unders";
+  if(isAnaerobicDay(day)) return "Laktat-Kinetik 30/4";
+  if(isThirtyFifteenDay(day)) return "30/15er";
+  if(isFourByEightDay(day)) return "4×8 min";
+  return "harte Radeinheit";
 }
 function missedRecommendation(day,reason){
   var dname=day.day;
@@ -3752,8 +3774,8 @@ function missedRecommendation(day,reason){
   }
   if(dname==="Dienstag") return "Dienstag Schwelle verpasst: Wenn du dich gut fühlst, auf Mittwoch schieben und Ganzkörper B kürzen/streichen. Donnerstag dann nur fahren, wenn mindestens 24 h Erholung dazwischen liegen; sonst durch 45–60 min Zone 2 ersetzen. Nicht Schwelle und zweite harte Radeinheit direkt hintereinander nachholen.";
   if(dname==="Donnerstag"){
-    if(isAnaerobicDay(day)) return "Donnerstag anaerobe Kurzintervalle verpasst: Nicht nachholen. Optional am Samstag 3–4 kurze Aktivierungen à 10–15 s in die Zone-2-Ausfahrt einbauen oder die Einheit komplett streichen.";
-    return "Donnerstag VO2/Over-Unders verpasst: Nicht am Freitag nachholen. Optional Samstag 2–3 kurze Aktivierungen in die Ausfahrt einbauen oder diese Einheit streichen.";
+    if(isAnaerobicDay(day)) return "Donnerstag Laktat-Kinetik verpasst: Nicht nachholen. Optional Samstag strikt Zone 2 fahren; keine Ersatzintervalle erzwingen.";
+    return "Donnerstag harte Radeinheit verpasst: Nicht am Freitag nachholen. Optional Samstag locker Zone 2 fahren oder die Einheit komplett streichen.";
   }
   if(dname==="Samstag") return "Optionale lange Ausfahrt verpasst: Kein Problem. Nicht kompensieren. Nächste Woche normal weitertrainieren.";
   if(dname==="Freitag") return "Athletic Conditioning/Lauf verpasst: Einfach streichen. Nicht nachholen.";
