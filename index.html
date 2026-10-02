@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#111318" />
-  <title>HYROX Frankfurt 2026 – 10-Wochen-Plan</title>
+  <title>HYROX Frankfurt 2026 – 10-Wochen-Plan v2</title>
   <style>
     :root{
       --bg:#0f1115;
@@ -89,7 +89,54 @@
     .complete.on{background:var(--good);color:#0d2018;border-color:var(--good)}
     .section{margin-top:18px}
     .section h4{font-size:13px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin:0 0 9px}
+    .phase-box{
+      border:1px solid var(--line);
+      border-radius:15px;
+      padding:13px;
+      margin-top:14px;
+    }
+    .phase-box.warmup{
+      background:#14181c;
+      border-left:4px solid #7f8b99;
+    }
+    .phase-box.training{
+      background:#1a1d23;
+      border-left:4px solid var(--good);
+    }
+    .phase-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:10px;
+    }
+    .phase-head h4{margin:0}
+    .phase-tag{
+      font-size:11px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      padding:4px 7px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
     .steps{display:grid;gap:7px}
+    .step.superset{
+      border-color:#4b5767;
+      background:#181d24;
+    }
+    .ss-badge{
+      display:inline-block;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      padding:3px 6px;
+      border-radius:999px;
+      background:#2a323d;
+      color:#d9e1ea;
+      margin-right:6px;
+      vertical-align:1px;
+    }
     .step{padding:10px 11px;border:1px solid var(--line);border-radius:12px;background:#13161b;line-height:1.42}
     .step strong{font-weight:700}
     .note{
@@ -209,7 +256,7 @@ const weeks = [
         "Standing Calf Raises – 3×10–15",
         "Core: Ring Body Saw – 2×8–12",
         "Wallball 9 kg – 3×8, sauber und mit Reserve",
-        "Finisher: Curls + Ring Triceps Extensions – 2×10–15 als Superset"
+        "Supersatz C: Curls – 2×10–15 ↔ Ring Triceps Extensions – 2×10–15"
       ],
       note:"Wenn abends Tennis stattfindet: Squat nur 2×5 und RDL 1–2×6."
     },
@@ -244,12 +291,12 @@ const weeks = [
   n:2, dates:"12.–18.10.2026", focus:"Laufgeschwindigkeit etablieren",
   days:[
     {id:"mo",label:"Mo",title:"Strength A",type:"strength",duration:"55–65 min",required:true,warmup:WARMUP_STRENGTH,
-      main:["Squat – 3×5 @ RPE 7","Ring Push-ups – 3×8–12","Klimmzüge/Ring Rows – 3×6–10","Ring Hamstring Curls – 2×10","Standing Calf Raise – 3×10–15","Dead Bug – 2×8 je Seite","Wallball – 3×8","Bizeps + Trizeps – 2 Supersätze"],
+      main:["Squat – 3×5 @ RPE 7","Supersatz A: Ring Push-ups – 3×8–12 ↔ Klimmzüge/Ring Rows – 3×6–10","Ring Hamstring Curls – 2×10","Supersatz B: Standing Calf Raise – 3×10–15 ↔ Dead Bug – 2×8 je Seite","Wallball – 3×8","Supersatz C: Bizeps-Curls ↔ Ring Triceps Extensions – 2 Runden"],
       note:"Bei Tennis am Abend: Squat nur 2 Sätze; Hamstring Curls 1–2 Sätze."},
     {id:"di",label:"Di",title:"Run A – 1-km-Intervalle",type:"run",duration:"55–65 min",required:true,warmup:WARMUP_RUN,
       main:["5×1 km @ 4:15–4:20 min/km","2 min Trabpause","5–8 min auslaufen"]},
     {id:"do",label:"Do",title:"Strength B – HYROX",type:"strength",duration:"55–65 min",required:true,warmup:WARMUP_STRENGTH,
-      main:["Push Press – 3×5–6","Face Pulls – 2×15–20","3 Runden: 20–25 m Lunges","3 Runden: 12 Wallballs","3 Runden: 8 Burpee Broad Jumps","3 Runden: 10 Ring Rows","3 Runden: 40–50 m Carry","3 Runden: 15 Band Pulldowns","60–90 s Pause","Bent-Knee Calf Raise – 2×15–20","Core – 2 Sätze"]},
+      main:["Supersatz A: Push Press – 3×5–6 ↔ Face Pulls – 2×15–20 (Face Pulls nur in den ersten 2 Durchgängen)","3 Runden: 20–25 m Lunges","3 Runden: 12 Wallballs","3 Runden: 8 Burpee Broad Jumps","3 Runden: 10 Ring Rows","3 Runden: 40–50 m Carry","3 Runden: 15 Band Pulldowns","60–90 s Pause","Supersatz B: Bent-Knee Calf Raise – 2×15–20 ↔ Core – 2 Sätze"]},
     {id:"fr",label:"Fr",title:"Run B – Zieltempo annähern",type:"run",duration:"55–65 min",required:true,warmup:WARMUP_RUN,
       main:["5×1 km @ 4:22–4:25 min/km","75–90 s locker","5–8 min auslaufen"]},
     {id:"so",label:"So",title:"Long Run",type:"run",duration:"60–65 min",required:false,warmup:WARMUP_LONG,main:["60–65 min locker in Z2"],note:"Optional."}
@@ -259,7 +306,7 @@ const weeks = [
   n:3, dates:"19.–25.10.2026", focus:"Erste HYROX-Kopplung",
   days:[
     {id:"mo",label:"Mo",title:"Strength A",type:"strength",duration:"55–65 min",required:true,warmup:WARMUP_STRENGTH,
-      main:["Squat – 3×4 @ RPE 7","Push-ups – 3×12–20, kontrolliertes Tempo","Klimmzüge/Ring Rows – 3×6–10","RDL – 2×5","Standing Calf Raise – 3×10–12","Ring Body Saw – 2–3 Sätze","Wallball – 3×10","Arm-Superset – 2 Runden"]},
+      main:["Squat – 3×4 @ RPE 7","Supersatz A: Push-ups – 3×12–20, kontrolliertes Tempo ↔ Klimmzüge/Ring Rows – 3×6–10","RDL – 2×5","Supersatz B: Standing Calf Raise – 3×10–12 ↔ Ring Body Saw – 2–3 Sätze","Wallball – 3×10","Supersatz C: Bizeps-Curls ↔ Ring Triceps Extensions – 2 Runden"]},
     {id:"di",label:"Di",title:"Run A – 1.200er",type:"run",duration:"55–65 min",required:true,warmup:WARMUP_RUN,
       main:["4×1.200 m @ 4:18–4:23 min/km","2:30 min Trabpause","5–8 min auslaufen"]},
     {id:"do",label:"Do",title:"Partnertraining 1 – Sled & Technik",type:"partner",duration:"60–70 min",required:true,warmup:WARMUP_STRENGTH,
@@ -274,11 +321,11 @@ const weeks = [
   n:4, dates:"26.10.–01.11.2026", focus:"Deload",
   days:[
     {id:"mo",label:"Mo",title:"Strength A – Deload",type:"strength",duration:"45–55 min",required:true,warmup:WARMUP_STRENGTH,
-      main:["Squat – 2×4 @ RPE 6","Bankdrücken – 2×6–8","Pull – 2×8","Hamstring Curl – 1–2×8","Calf Raise – 2×12","Core – 2 Sätze","Wallball – 2×8","Arm-Finisher optional 1–2 Sätze"]},
+      main:["Squat – 2×4 @ RPE 6","Supersatz A: Bankdrücken – 2×6–8 ↔ Pull – 2×8","Hamstring Curl – 1–2×8","Supersatz B: Calf Raise – 2×12 ↔ Core – 2 Sätze","Wallball – 2×8","Supersatz C optional: Bizeps-Curls ↔ Ring Triceps Extensions – 1–2 Runden"]},
     {id:"di",label:"Di",title:"Run A – Deload",type:"run",duration:"50–60 min",required:true,warmup:WARMUP_RUN,
       main:["4×800 m @ 4:12–4:18 min/km","2 min Trabpause","5–8 min auslaufen"]},
     {id:"do",label:"Do",title:"Strength B – Deload",type:"strength",duration:"45–55 min",required:true,warmup:WARMUP_STRENGTH,
-      main:["Push Press – 2×5 leicht","Face Pulls – 2×15","2 lockere Runden: 20 m Lunges","2 Runden: 8 Wallballs","2 Runden: 6 BBJ","2 Runden: 8 Ring Rows","2 Runden: 30–40 m Carry","2 Runden: 12 Band Pulldowns"],note:"RPE maximal 6."},
+      main:["Supersatz A: Push Press – 2×5 leicht ↔ Face Pulls – 2×15","2 lockere Runden: 20 m Lunges","2 Runden: 8 Wallballs","2 Runden: 6 BBJ","2 Runden: 8 Ring Rows","2 Runden: 30–40 m Carry","2 Runden: 12 Band Pulldowns"],note:"RPE maximal 6."},
     {id:"fr",label:"Fr",title:"Run B – Steady",type:"run",duration:"40–50 min",required:true,warmup:WARMUP_RUN,
       main:["20–25 min steady @ ca. 4:45–4:55 min/km","5–8 min auslaufen"]},
     {id:"so",label:"So",title:"Long Run",type:"run",duration:"45–55 min",required:false,warmup:WARMUP_LONG,main:["45–55 min sehr locker"],note:"Optional."}
@@ -288,11 +335,11 @@ const weeks = [
   n:5, dates:"02.–08.11.2026", focus:"Spezifischer Aufbau",
   days:[
     {id:"mo",label:"Mo",title:"Strength A",type:"strength",duration:"55–65 min",required:true,warmup:WARMUP_STRENGTH,
-      main:["Squat – 3×4 @ RPE 7","Bankdrücken – 3×6–8","Pull – 3×6–10","RDL – 2×5","Calf Raise – 3×10–12","Core – 2–3 Sätze","Wallball – 3×10","Arm-Superset – 2 Runden"]},
+      main:["Squat – 3×4 @ RPE 7","Supersatz A: Bankdrücken – 3×6–8 ↔ Pull – 3×6–10","RDL – 2×5","Supersatz B: Calf Raise – 3×10–12 ↔ Core – 2–3 Sätze","Wallball – 3×10","Supersatz C: Bizeps-Curls ↔ Ring Triceps Extensions – 2 Runden"]},
     {id:"di",label:"Di",title:"Run A – längere Intervalle",type:"run",duration:"55–65 min",required:true,warmup:WARMUP_RUN,
       main:["3×1.600 m @ 4:23–4:28 min/km","2:30 min Trabpause","5–8 min auslaufen"]},
     {id:"do",label:"Do",title:"Strength B – HYROX",type:"strength",duration:"60–70 min",required:true,warmup:WARMUP_STRENGTH,
-      main:["Push Press – 3×5–6","Face Pulls – 2×15–20","4 Runden: 25 m Lunges","4 Runden: 12 Wallballs","4 Runden: 8 BBJ","4 Runden: 10 Ring Rows","4 Runden: 50 m Carry","4 Runden: 15 Band Pulldowns","75–90 s Pause","Bent-Knee Calf Raise – 2 Sätze","Core – 2 Sätze"]},
+      main:["Supersatz A: Push Press – 3×5–6 ↔ Face Pulls – 2×15–20 (Face Pulls nur in den ersten 2 Durchgängen)","4 Runden: 25 m Lunges","4 Runden: 12 Wallballs","4 Runden: 8 BBJ","4 Runden: 10 Ring Rows","4 Runden: 50 m Carry","4 Runden: 15 Band Pulldowns","75–90 s Pause","Supersatz B: Bent-Knee Calf Raise – 2 Sätze ↔ Core – 2 Sätze"]},
     {id:"fr",label:"Fr",title:"Run B – compromised",type:"run",duration:"60–65 min",required:true,warmup:WARMUP_RUN,
       main:["5 Runden: 8–10 Wallballs → 1 km @ 4:18–4:22 min/km","75–90 s Pause","kurz auslaufen"]},
     {id:"so",label:"So",title:"Long Run",type:"run",duration:"60–70 min",required:false,warmup:WARMUP_LONG,main:["60–70 min locker in Z2"],note:"Optional."}
@@ -302,7 +349,7 @@ const weeks = [
   n:6, dates:"09.–15.11.2026", focus:"Compromised Running",
   days:[
     {id:"mo",label:"Mo",title:"Strength A",type:"strength",duration:"55–65 min",required:true,warmup:WARMUP_STRENGTH,
-      main:["Squat – 3×4 @ RPE 7","Ring Push-ups – 3×8–12","Pull – 3×6–10","Hamstring Curls – 2×8","Calf Raise – 3×10–15","Core – 2 Sätze","Wallball – 3×10","Arm-Superset – 2 Runden"]},
+      main:["Squat – 3×4 @ RPE 7","Supersatz A: Ring Push-ups – 3×8–12 ↔ Pull – 3×6–10","Hamstring Curls – 2×8","Supersatz B: Calf Raise – 3×10–15 ↔ Core – 2 Sätze","Wallball – 3×10","Supersatz C: Bizeps-Curls ↔ Ring Triceps Extensions – 2 Runden"]},
     {id:"di",label:"Di",title:"Run A – Geschwindigkeitsreserve",type:"run",duration:"55–65 min",required:true,warmup:WARMUP_RUN,
       main:["6×1 km @ 4:10–4:15 min/km","2 min Trabpause","kurz auslaufen"]},
     {id:"do",label:"Do",title:"Partnertraining 2 – Doubles",type:"partner",duration:"60–70 min",required:true,warmup:WARMUP_STRENGTH,
@@ -317,11 +364,11 @@ const weeks = [
   n:7, dates:"16.–22.11.2026", focus:"Schlüsselwoche Race Pace",
   days:[
     {id:"mo",label:"Mo",title:"Strength A",type:"strength",duration:"55–65 min",required:true,warmup:WARMUP_STRENGTH,
-      main:["Squat – 3×4 @ RPE 7","Push-ups – 3×12–15","Pull – 3×6–10","RDL – 2×5","Standing Calf Raise – 3×10–12","Core – 2–3 Sätze","Wallball – 3×10","Arm-Superset – 2×10–15"]},
+      main:["Squat – 3×4 @ RPE 7","Supersatz A: Push-ups – 3×12–15 ↔ Pull – 3×6–10","RDL – 2×5","Supersatz B: Standing Calf Raise – 3×10–12 ↔ Core – 2–3 Sätze","Wallball – 3×10","Supersatz C: Bizeps-Curls 2×10–15 ↔ Ring Triceps Extensions 2×10–15"]},
     {id:"di",label:"Di",title:"Run A – 2-km-Blöcke",type:"run",duration:"60–65 min",required:true,warmup:WARMUP_RUN,
       main:["3×2 km @ 4:20–4:25 min/km","2:30 min Trabpause","kurz auslaufen"]},
     {id:"do",label:"Do",title:"Strength B – HYROX",type:"strength",duration:"60–70 min",required:true,warmup:WARMUP_STRENGTH,
-      main:["Push Press – 3×5","Face Pulls – 2×15–20","4 Runden: 25 m Lunges","4 Runden: 12–15 Wallballs","4 Runden: 8–10 BBJ","4 Runden: 10 Ring Rows","4 Runden: 50 m Carry","4 Runden: 15 Band Pulldowns","75–90 s Pause"]},
+      main:["Supersatz A: Push Press – 3×5 ↔ Face Pulls – 2×15–20 (Face Pulls nur in den ersten 2 Durchgängen)","4 Runden: 25 m Lunges","4 Runden: 12–15 Wallballs","4 Runden: 8–10 BBJ","4 Runden: 10 Ring Rows","4 Runden: 50 m Carry","4 Runden: 15 Band Pulldowns","75–90 s Pause"]},
     {id:"fr",label:"Fr",title:"Run B – Schlüsseltraining",type:"run",duration:"60–70 min",required:true,warmup:WARMUP_RUN,
       main:["6×1 km @ 4:15–4:20 min/km","Vor km 1: 8 Wallballs","Vor km 2: 15–20 m Lunges","Vor km 3: 5–6 BBJ","Vor km 4: 40 m Carry","Vor km 5: 8 Wallballs","Vor km 6: 15–20 m Lunges","75–90 s Pause nach dem Lauf"],
       note:"Vorbelastung klein halten. Der Lauf ist der Hauptreiz."},
@@ -332,7 +379,7 @@ const weeks = [
   n:8, dates:"23.–29.11.2026", focus:"Peak / Generalprobe",
   days:[
     {id:"mo",label:"Mo",title:"Strength A",type:"strength",duration:"50–60 min",required:true,warmup:WARMUP_STRENGTH,
-      main:["Squat – 3×3 @ RPE 7","Bankdrücken – 3×6","Pull – 3×6–8","Hamstring Curl – 2×8","Calf Raise – 2–3×10–12","Core – 2 Sätze","Wallball – 3×8","Arm-Finisher – 2 Supersätze"]},
+      main:["Squat – 3×3 @ RPE 7","Supersatz A: Bankdrücken – 3×6 ↔ Pull – 3×6–8","Hamstring Curl – 2×8","Supersatz B: Calf Raise – 2–3×10–12 ↔ Core – 2 Sätze","Wallball – 3×8","Supersatz C: Bizeps-Curls ↔ Ring Triceps Extensions – 2 Runden"]},
     {id:"di",label:"Di",title:"Run A – 800er schnell",type:"run",duration:"55–65 min",required:true,warmup:WARMUP_RUN,
       main:["8×800 m @ 4:05–4:12 min/km","90 s Trabpause","kurz auslaufen"],
       note:"Schnell, aber sauber. Keine letzte Wiederholung erzwingen."},
@@ -348,11 +395,11 @@ const weeks = [
   n:9, dates:"30.11.–06.12.2026", focus:"Sharpening",
   days:[
     {id:"mo",label:"Mo",title:"Strength A – reduziert",type:"strength",duration:"45–55 min",required:true,warmup:WARMUP_STRENGTH,
-      main:["Squat – 2–3×3 @ RPE 7","Ring Push-ups – 2×8–10","Pull – 2×6–8","RDL – 2×5 leicht","Calf Raise – 2×10–12","Core – 2 Sätze","Wallball – 2×8","Arm-Finisher – 1–2 Supersätze"]},
+      main:["Squat – 2–3×3 @ RPE 7","Supersatz A: Ring Push-ups – 2×8–10 ↔ Pull – 2×6–8","RDL – 2×5 leicht","Supersatz B: Calf Raise – 2×10–12 ↔ Core – 2 Sätze","Wallball – 2×8","Supersatz C: Bizeps-Curls ↔ Ring Triceps Extensions – 1–2 Runden"]},
     {id:"di",label:"Di",title:"Run A – schnell & sauber",type:"run",duration:"50–60 min",required:true,warmup:WARMUP_RUN,
       main:["5×1 km @ 4:08–4:15 min/km","2 min Trabpause","kurz auslaufen"]},
     {id:"do",label:"Do",title:"Strength B / Partnertraining 4",type:"partner",duration:"45–55 min",required:true,warmup:WARMUP_STRENGTH,
-      main:["Variante A ohne Partner: Push Press 2×5 + Face Pulls 2×15 + 3 moderate HYROX-Runden","Variante B mit Partner: 3× 1 km @ 4:15–4:20 → kurzer Stationsblock","Fokus: Rhythmus, Wechsel, Sicherheit – kein großes Volumen"]},
+      main:["Variante A ohne Partner: Supersatz Push Press 2×5 ↔ Face Pulls 2×15, danach 3 moderate HYROX-Runden","Variante B mit Partner: 3× 1 km @ 4:15–4:20 → kurzer Stationsblock","Fokus: Rhythmus, Wechsel, Sicherheit – kein großes Volumen"]},
     {id:"fr",label:"Fr",title:"Run B – Race Pace",type:"run",duration:"50–60 min",required:true,warmup:WARMUP_RUN,
       main:["4 Runden: 6–8 Wallballs → 1 km @ 4:15–4:18 min/km","75–90 s locker"],
       note:"Soll kontrolliert wirken. Kein Test."},
@@ -363,7 +410,7 @@ const weeks = [
   n:10, dates:"07.–13.12.2026", focus:"Race Week",
   days:[
     {id:"mo",label:"Mo",title:"Strength Activation",type:"strength",duration:"35–45 min",required:true,warmup:WARMUP_STRENGTH,
-      main:["Squat – 2×3 @ RPE 6","Bankdrücken oder Push-ups – 2×5–8 locker","Pull – 2×6","Standing Calf Raise – 1–2×10","Core – 1–2 Sätze","Wallball – 2×6"],
+      main:["Squat – 2×3 @ RPE 6","Supersatz A: Bankdrücken oder Push-ups – 2×5–8 locker ↔ Pull – 2×6","Supersatz B: Standing Calf Raise – 1–2×10 ↔ Core – 1–2 Sätze","Wallball – 2×6"],
       note:"Keine RDL/Hamstring Curls, kein Arm-Finisher."},
     {id:"di",label:"Di",title:"Run A – letzter Qualitätsreiz",type:"run",duration:"40–50 min",required:true,warmup:WARMUP_RUN,
       main:["3×800 m @ 4:08–4:12 min/km","2 min locker","optional 2×20 s zügig","kurz auslaufen"]},
@@ -475,8 +522,16 @@ function renderContent(){
   currentDay=d.id;
   const k=key(w.n,d.id), done=!!state.completed[k], logs=state.logs[k]||{};
   const requiredLabel=d.required?"Pflicht":"Optional";
-  const warmup=(d.warmup||[]).map(x=>`<div class="step">${x}</div>`).join("");
-  const main=(d.main||[]).map(x=>`<div class="step">${x}</div>`).join("");
+  const stepHtml = (x) => {
+    const isSS = x.startsWith("Supersatz");
+    if(!isSS) return `<div class="step">${x}</div>`;
+    const parts = x.split(":");
+    const label = parts.shift();
+    const body = parts.join(":").trim();
+    return `<div class="step superset"><span class="ss-badge">${label}</span>${body}</div>`;
+  };
+  const warmup=(d.warmup||[]).map(stepHtml).join("");
+  const main=(d.main||[]).map(stepHtml).join("");
 
   let logFields="";
   if(d.type==="run"){
@@ -513,13 +568,19 @@ function renderContent(){
         <button class="complete ${done?'on':''}" id="completeBtn">${done?'✓ Erledigt':'Als erledigt markieren'}</button>
       </div>
 
-      <div class="section">
-        <h4>Warm-up</h4>
+      <div class="phase-box warmup">
+        <div class="phase-head">
+          <h4>Warm-up & Mobility</h4>
+          <span class="phase-tag">Vorbereitung</span>
+        </div>
         <div class="steps">${warmup}</div>
       </div>
 
-      <div class="section">
-        <h4>Hauptteil</h4>
+      <div class="phase-box training">
+        <div class="phase-head">
+          <h4>Training</h4>
+          <span class="phase-tag">Hauptteil</span>
+        </div>
         <div class="steps">${main}</div>
       </div>
 
