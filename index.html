@@ -169,7 +169,7 @@
   <header>
     <div class="eyebrow">HYROX Doubles Men · Frankfurt</div>
     <h1>10-Wochen-Plan</h1>
-    <div class="sub">05.10.–13.12.2026 · Laufziel 4:15 min/km · 2× Strength + 2× Run · Sonntag optional</div>
+    <div class="sub">05.10.–13.12.2026 · Laufziel 4:15 min/km · 2× Strength + 2× Run · Sonntag optional/empfohlen</div>
   </header>
 
   <section class="hero">
@@ -201,7 +201,7 @@
   <main id="content"></main>
 
   <div class="footer-note">
-    Daten werden nur lokal in diesem Browser gespeichert. Sonntag bleibt optional und zählt nicht zur Wochenquote; der Race Day in Woche 10 ist als Event separat markiert.
+    Daten werden nur lokal in diesem Browser gespeichert. Sonntag bleibt optional und zählt nicht zur Wochenquote, ist aber als aerobe Grundlage empfohlen; der Race Day in Woche 10 ist separat markiert.
   </div>
 </div>
 
@@ -280,10 +280,11 @@ const weeks = [
         "Pallof Press – 2×10 je Seite"
       ]
     },
-    {id:"fr",label:"Fr",title:"Run B – HYROX Pace",type:"run",duration:"50–60 min",required:true,
-      warmup:WARMUP_RUN, main:["4×1 km @ ca. 4:25 min/km","90 s lockeres Traben","5–8 min auslaufen"]
+    {id:"fr",label:"Fr",title:"Run B – Z2 + Strides",type:"run",duration:"50–60 min",required:true,
+      warmup:WARMUP_LONG, main:["45–50 min locker in Z2","anschließend 4×20 s lockere Steigerung mit vollständiger Erholung"],
+      note:"Grundlagenausdauer hat in dieser Phase Vorrang. Die Strides halten Laufökonomie und Dynamik hoch."
     },
-    {id:"so",label:"So",title:"Long Run",type:"run",duration:"55–60 min",required:false,
+    {id:"so",label:"So",title:"Long Run – empfohlen",type:"run",duration:"55–60 min",required:false,
       warmup:WARMUP_LONG, main:["55–60 min locker in Z2","Pace nach Gefühl/HF, nicht erzwingen"],note:"Optional. Bei müden Beinen komplett streichen."}
   ]
 },
@@ -297,9 +298,10 @@ const weeks = [
       main:["5×1 km @ 4:15–4:20 min/km","2 min Trabpause","5–8 min auslaufen"]},
     {id:"do",label:"Do",title:"Strength B – HYROX",type:"strength",duration:"55–65 min",required:true,warmup:WARMUP_STRENGTH,
       main:["Supersatz A: Push Press – 3×5–6 ↔ Face Pulls – 2×15–20 (Face Pulls nur in den ersten 2 Durchgängen)","3 Runden: 20–25 m Lunges","3 Runden: 12 Wallballs","3 Runden: 8 Burpee Broad Jumps","3 Runden: 10 Ring Rows","3 Runden: 40–50 m Carry","3 Runden: 15 Band Pulldowns","60–90 s Pause","Supersatz B: Bent-Knee Calf Raise – 2×15–20 ↔ Core – 2 Sätze"]},
-    {id:"fr",label:"Fr",title:"Run B – Zieltempo annähern",type:"run",duration:"55–65 min",required:true,warmup:WARMUP_RUN,
-      main:["5×1 km @ 4:22–4:25 min/km","75–90 s locker","5–8 min auslaufen"]},
-    {id:"so",label:"So",title:"Long Run",type:"run",duration:"60–65 min",required:false,warmup:WARMUP_LONG,main:["60–65 min locker in Z2"],note:"Optional."}
+    {id:"fr",label:"Fr",title:"Run B – Z2",type:"run",duration:"50–60 min",required:true,warmup:WARMUP_LONG,
+      main:["50–55 min locker in Z2","Pace bewusst nach Gefühl/HF statt nach Zieltempo"],
+      note:"Ruhiger aerober Reiz statt einer zweiten harten Laufeinheit."},
+    {id:"so",label:"So",title:"Long Run – empfohlen",type:"run",duration:"60–65 min",required:false,warmup:WARMUP_LONG,main:["60–65 min locker in Z2"],note:"Optional."}
   ]
 },
 {
@@ -312,9 +314,10 @@ const weeks = [
     {id:"do",label:"Do",title:"Partnertraining 1 – Sled & Technik",type:"partner",duration:"60–70 min",required:true,warmup:WARMUP_STRENGTH,
       main:["15–20 min Sled Push/Pull Technik und sinnvolle Wechsel testen","Danach 3 Blöcke: 800 m Lauf @ 4:25–4:30 min/km","Nach jedem Lauf: Sled Push/Pull bzw. Carry","2–3 min Pause zwischen den Blöcken"],
       note:"Noch keine Simulation. Technik, Aufteilung und saubere Belastungssteuerung stehen im Vordergrund."},
-    {id:"fr",label:"Fr",title:"Run B – erste Vorbelastung",type:"run",duration:"55–65 min",required:true,warmup:WARMUP_RUN,
-      main:["4 Runden: 6–8 Wallballs → 1 km @ 4:20–4:22 min/km","90 s locker nach jedem Lauf","5–8 min auslaufen"]},
-    {id:"so",label:"So",title:"Long Run",type:"run",duration:"60–65 min",required:false,warmup:WARMUP_LONG,main:["60–65 min locker in Z2"],note:"Optional."}
+    {id:"fr",label:"Fr",title:"Run B – Z2 + Strides",type:"run",duration:"45–55 min",required:true,warmup:WARMUP_LONG,
+      main:["40–50 min locker in Z2","anschließend 4×20 s Steigerung mit vollständiger Erholung"],
+      note:"Die spezifische Vorbelastung kommt später im Block. Jetzt weiter aerobe Basis aufbauen."},
+    {id:"so",label:"So",title:"Long Run – empfohlen",type:"run",duration:"60–65 min",required:false,warmup:WARMUP_LONG,main:["60–65 min locker in Z2"],note:"Optional."}
   ]
 },
 {
@@ -326,9 +329,10 @@ const weeks = [
       main:["4×800 m @ 4:12–4:18 min/km","2 min Trabpause","5–8 min auslaufen"]},
     {id:"do",label:"Do",title:"Strength B – Deload",type:"strength",duration:"45–55 min",required:true,warmup:WARMUP_STRENGTH,
       main:["Supersatz A: Push Press – 2×5 leicht ↔ Face Pulls – 2×15","2 lockere Runden: 20 m Lunges","2 Runden: 8 Wallballs","2 Runden: 6 BBJ","2 Runden: 8 Ring Rows","2 Runden: 30–40 m Carry","2 Runden: 12 Band Pulldowns"],note:"RPE maximal 6."},
-    {id:"fr",label:"Fr",title:"Run B – Steady",type:"run",duration:"40–50 min",required:true,warmup:WARMUP_RUN,
-      main:["20–25 min steady @ ca. 4:45–4:55 min/km","5–8 min auslaufen"]},
-    {id:"so",label:"So",title:"Long Run",type:"run",duration:"45–55 min",required:false,warmup:WARMUP_LONG,main:["45–55 min sehr locker"],note:"Optional."}
+    {id:"fr",label:"Fr",title:"Run B – lockere Grundlage",type:"run",duration:"40–50 min",required:true,warmup:WARMUP_LONG,
+      main:["40–45 min sehr locker in Z2"],
+      note:"Deload: keine zusätzliche Tempoarbeit."},
+    {id:"so",label:"So",title:"Long Run – empfohlen",type:"run",duration:"45–55 min",required:false,warmup:WARMUP_LONG,main:["45–55 min sehr locker"],note:"Optional."}
   ]
 },
 {
@@ -340,9 +344,10 @@ const weeks = [
       main:["3×1.600 m @ 4:23–4:28 min/km","2:30 min Trabpause","5–8 min auslaufen"]},
     {id:"do",label:"Do",title:"Strength B – HYROX",type:"strength",duration:"60–70 min",required:true,warmup:WARMUP_STRENGTH,
       main:["Supersatz A: Push Press – 3×5–6 ↔ Face Pulls – 2×15–20 (Face Pulls nur in den ersten 2 Durchgängen)","4 Runden: 25 m Lunges","4 Runden: 12 Wallballs","4 Runden: 8 BBJ","4 Runden: 10 Ring Rows","4 Runden: 50 m Carry","4 Runden: 15 Band Pulldowns","75–90 s Pause","Supersatz B: Bent-Knee Calf Raise – 2 Sätze ↔ Core – 2 Sätze"]},
-    {id:"fr",label:"Fr",title:"Run B – compromised",type:"run",duration:"60–65 min",required:true,warmup:WARMUP_RUN,
-      main:["5 Runden: 8–10 Wallballs → 1 km @ 4:18–4:22 min/km","75–90 s Pause","kurz auslaufen"]},
-    {id:"so",label:"So",title:"Long Run",type:"run",duration:"60–70 min",required:false,warmup:WARMUP_LONG,main:["60–70 min locker in Z2"],note:"Optional."}
+    {id:"fr",label:"Fr",title:"Run B – erster spezifischer Reiz",type:"run",duration:"55–65 min",required:true,warmup:WARMUP_RUN,
+      main:["4–5 Runden: 8–10 Wallballs → 1 km @ 4:18–4:22 min/km","75–90 s Pause","kurz auslaufen"],
+      note:"Erster klarer compromised-running Reiz des Blocks. Nicht maximal laufen."},
+    {id:"so",label:"So",title:"Long Run – empfohlen",type:"run",duration:"60–70 min",required:false,warmup:WARMUP_LONG,main:["60–70 min locker in Z2"],note:"Optional."}
   ]
 },
 {
@@ -355,9 +360,10 @@ const weeks = [
     {id:"do",label:"Do",title:"Partnertraining 2 – Doubles",type:"partner",duration:"60–70 min",required:true,warmup:WARMUP_STRENGTH,
       main:["4×: 1 km gemeinsam @ 4:20–4:25 min/km → eine Station","Station 1: Sled Push","Station 2: Sled Pull","Station 3: Farmers Carry","Station 4: Lunges + Wallballs","Stationsarbeit bereits sinnvoll als Doubles aufteilen"],
       note:"Deutlich wettkampfnäher, aber noch nicht maximal."},
-    {id:"fr",label:"Fr",title:"Run B – kontrolliert",type:"run",duration:"50–60 min",required:true,warmup:WARMUP_RUN,
-      main:["4×1 km @ 4:18–4:20 min/km","75–90 s Trabpause","keine zusätzliche Vorbelastung"]},
-    {id:"so",label:"So",title:"Long Run",type:"run",duration:"50–65 min",required:false,warmup:WARMUP_LONG,main:["50–65 min locker in Z2"],note:"Bei müden Beinen komplett streichen."}
+    {id:"fr",label:"Fr",title:"Run B – Z2",type:"run",duration:"45–55 min",required:true,warmup:WARMUP_LONG,
+      main:["45–55 min locker in Z2"],
+      note:"Nach dem Partnertraining bewusst locker. Aerobe Grundlage und Regeneration stehen im Vordergrund."},
+    {id:"so",label:"So",title:"Long Run – empfohlen",type:"run",duration:"50–65 min",required:false,warmup:WARMUP_LONG,main:["50–65 min locker in Z2"],note:"Bei müden Beinen komplett streichen."}
   ]
 },
 {
@@ -370,9 +376,9 @@ const weeks = [
     {id:"do",label:"Do",title:"Strength B – HYROX",type:"strength",duration:"60–70 min",required:true,warmup:WARMUP_STRENGTH,
       main:["Supersatz A: Push Press – 3×5 ↔ Face Pulls – 2×15–20 (Face Pulls nur in den ersten 2 Durchgängen)","4 Runden: 25 m Lunges","4 Runden: 12–15 Wallballs","4 Runden: 8–10 BBJ","4 Runden: 10 Ring Rows","4 Runden: 50 m Carry","4 Runden: 15 Band Pulldowns","75–90 s Pause"]},
     {id:"fr",label:"Fr",title:"Run B – Schlüsseltraining",type:"run",duration:"60–70 min",required:true,warmup:WARMUP_RUN,
-      main:["6×1 km @ 4:15–4:20 min/km","Vor km 1: 8 Wallballs","Vor km 2: 15–20 m Lunges","Vor km 3: 5–6 BBJ","Vor km 4: 40 m Carry","Vor km 5: 8 Wallballs","Vor km 6: 15–20 m Lunges","75–90 s Pause nach dem Lauf"],
+      main:["5–6×1 km @ 4:15–4:20 min/km","Vor km 1: 8 Wallballs","Vor km 2: 15–20 m Lunges","Vor km 3: 5–6 BBJ","Vor km 4: 40 m Carry","Vor km 5: 8 Wallballs","optional vor km 6: 15–20 m Lunges","75–90 s Pause nach dem Lauf"],
       note:"Vorbelastung klein halten. Der Lauf ist der Hauptreiz."},
-    {id:"so",label:"So",title:"Long Run",type:"run",duration:"60–70 min",required:false,warmup:WARMUP_LONG,main:["60–70 min locker in Z2"],note:"Optional."}
+    {id:"so",label:"So",title:"Long Run – empfohlen",type:"run",duration:"60–70 min",required:false,warmup:WARMUP_LONG,main:["60–70 min locker in Z2"],note:"Optional."}
   ]
 },
 {
@@ -386,9 +392,9 @@ const weeks = [
     {id:"do",label:"Do",title:"Partnertraining 3 – Generalprobe",type:"partner",duration:"65–70 min",required:true,warmup:WARMUP_STRENGTH,
       main:["5–6 km Running + 5–6 Stationsblöcke","1 km → Sled Push","1 km → Sled Pull","1 km → BBJ","1 km → Farmers Carry","1 km → Lunges","optional 1 km → Wallballs","Läufe zunächst 4:20–4:25; später ggf. Richtung 4:15–4:20"],
       note:"Aufteilung, Wechsel, Kommunikation und Rückkehr in den Laufrhythmus testen."},
-    {id:"fr",label:"Fr",title:"Run B – Recovery",type:"run",duration:"35–45 min",required:true,warmup:WARMUP_LONG,
-      main:["30–40 min sehr locker","danach 4×20 s lockere Steigerung"]},
-    {id:"so",label:"So",title:"Long Run",type:"run",duration:"45–55 min",required:false,warmup:WARMUP_LONG,main:["45–55 min locker"],note:"Optional oder komplett frei."}
+    {id:"fr",label:"Fr",title:"Run B – Recovery Z2",type:"run",duration:"35–45 min",required:true,warmup:WARMUP_LONG,
+      main:["30–40 min sehr locker in Z2","danach 4×20 s lockere Steigerung"]},
+    {id:"so",label:"So",title:"Long Run – empfohlen",type:"run",duration:"45–55 min",required:false,warmup:WARMUP_LONG,main:["45–55 min locker"],note:"Optional oder komplett frei."}
   ]
 },
 {
@@ -400,10 +406,10 @@ const weeks = [
       main:["5×1 km @ 4:08–4:15 min/km","2 min Trabpause","kurz auslaufen"]},
     {id:"do",label:"Do",title:"Strength B / Partnertraining 4",type:"partner",duration:"45–55 min",required:true,warmup:WARMUP_STRENGTH,
       main:["Variante A ohne Partner: Supersatz Push Press 2×5 ↔ Face Pulls 2×15, danach 3 moderate HYROX-Runden","Variante B mit Partner: 3× 1 km @ 4:15–4:20 → kurzer Stationsblock","Fokus: Rhythmus, Wechsel, Sicherheit – kein großes Volumen"]},
-    {id:"fr",label:"Fr",title:"Run B – Race Pace",type:"run",duration:"50–60 min",required:true,warmup:WARMUP_RUN,
+    {id:"fr",label:"Fr",title:"Run B – Race Pace spezifisch",type:"run",duration:"50–60 min",required:true,warmup:WARMUP_RUN,
       main:["4 Runden: 6–8 Wallballs → 1 km @ 4:15–4:18 min/km","75–90 s locker"],
       note:"Soll kontrolliert wirken. Kein Test."},
-    {id:"so",label:"So",title:"Long Run",type:"run",duration:"45–50 min",required:false,warmup:WARMUP_LONG,main:["45–50 min sehr locker"],note:"Optional oder frei."}
+    {id:"so",label:"So",title:"Long Run – empfohlen",type:"run",duration:"45–50 min",required:false,warmup:WARMUP_LONG,main:["45–50 min sehr locker"],note:"Optional oder frei."}
   ]
 },
 {
