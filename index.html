@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#111318" />
-  <title>HYROX Frankfurt 2026 – 10-Wochen-Plan v2</title>
+  <title>HYROX Frankfurt 2026 – Trainingsplan</title>
   <style>
     :root{
       --bg:#0f1115;
@@ -30,6 +30,8 @@
       -webkit-font-smoothing:antialiased;
     }
     button,input,textarea{font:inherit}
+    button{touch-action:manipulation}
+    button:focus-visible,summary:focus-visible{outline:2px solid var(--good);outline-offset:3px}
     .app{max-width:880px;margin:0 auto;padding:18px 14px 90px}
     header{padding:10px 2px 14px}
     .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
@@ -154,6 +156,43 @@
     .optional{color:var(--muted)}
     .footer-note{margin-top:18px;color:var(--muted);font-size:12px;line-height:1.5}
     .empty{color:var(--muted);padding:22px 4px}
+    .day-tab.modified::before{content:"• ";color:var(--warn)}
+    .pill.changed{color:var(--warn);border-color:#685532}
+    .tools{margin-top:16px}
+    .tools summary{cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;list-style:none;font-size:15px;font-weight:750}
+    .tools summary::-webkit-details-marker{display:none}
+    .tools summary::after{content:"⌄";color:var(--muted);font-size:24px;line-height:1}
+    .tools[open] summary::after{content:"⌃"}
+    .tool-section{padding-top:16px;margin-top:16px;border-top:1px solid var(--line)}
+    .tool-section h4{font-size:14px;margin:0 0 8px}
+    .hint{font-size:12px;color:var(--muted);line-height:1.5;margin:7px 0 12px}
+    .btn{border:1px solid var(--line);background:var(--panel2);border-radius:11px;padding:10px 13px;color:var(--text);cursor:pointer;font-weight:650;white-space:normal}
+    .btn.primary{background:var(--text);border-color:var(--text);color:#101216}
+    .btn.sm{padding:7px 10px;font-size:12px}
+    .btn.danger{color:var(--danger);border-color:#744747}
+    .btn:disabled{opacity:.4;cursor:not-allowed}
+    .button-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center}
+    .edit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .edit-grid .wide{grid-column:1/-1}
+    .edit-grid textarea{min-height:110px}
+    .adjusted-line{margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .adjusted-line .hint{margin:0}
+    .status{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:11px 12px;font-size:13px;line-height:1.45;white-space:pre-line}
+    .status.ok{border-color:#336a50;color:var(--good);background:#14221d}
+    .status.error{border-color:#744747;color:var(--danger);background:#251819}
+    .compare-card{border:1px solid var(--line);border-radius:13px;padding:12px;margin-top:10px;background:#12151b}
+    .compare-card h5{margin:0 0 5px;font-size:15px}
+    .compare-row{margin-top:9px;border-top:1px solid var(--line);padding-top:9px}
+    .compare-title{font-size:12px;font-weight:750;color:var(--muted);margin-bottom:7px}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .compare-col{min-width:0;font-size:12px;line-height:1.45;background:#1b1f27;border-radius:9px;padding:9px;white-space:pre-wrap;overflow-wrap:anywhere}
+    .compare-col.new{border-left:3px solid var(--good)}
+    .compare-col b{display:block;margin-bottom:5px;font-size:11px;color:var(--muted)}
+    .file-pick{display:inline-block;position:relative;overflow:hidden}
+    .file-pick input{position:absolute;inset:0;opacity:0;cursor:pointer;padding:0}
+    #aiInput{min-height:125px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px}
+    .example{white-space:pre-wrap;overflow-wrap:anywhere;font-size:11px;color:var(--muted);background:#101319;padding:12px;border-radius:9px;line-height:1.5}
+    [hidden]{display:none!important}
     @media (max-width:620px){
       .app{padding-left:11px;padding-right:11px}
       h1{font-size:27px}
@@ -161,6 +200,7 @@
       .hero-top{align-items:flex-start}
       .title-row{flex-direction:column}
       .complete{width:100%}
+      .edit-grid,.compare-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -199,6 +239,61 @@
 
   <nav class="day-tabs" id="dayTabs"></nav>
   <main id="content"></main>
+
+  <details id="adjustments" class="card tools">
+    <summary>⚙️ Trainingsplan anpassen</summary>
+    <div class="tool-section">
+      <h4>Aktuelle Einheit bearbeiten</h4>
+      <p class="hint">Dauer, Übungen und Hinweise ändern. Der Originalplan bleibt erhalten und kann jederzeit wiederhergestellt werden.</p>
+      <button type="button" class="btn" id="openEditor">✎ Einheit bearbeiten</button>
+      <div id="manualEditor" hidden style="margin-top:15px">
+        <div class="edit-grid">
+          <div><label for="editTitle">Titel</label><input id="editTitle" maxlength="140"></div>
+          <div><label for="editDuration">Dauer</label><input id="editDuration" maxlength="80"></div>
+          <div class="wide"><label for="editWarmup">Warm-up · eine Übung pro Zeile</label><textarea id="editWarmup"></textarea></div>
+          <div class="wide"><label for="editMain">Training · eine Übung pro Zeile</label><textarea id="editMain"></textarea></div>
+          <div class="wide"><label for="editNote">Hinweis (optional)</label><textarea id="editNote" style="min-height:70px"></textarea></div>
+        </div>
+        <div class="button-row">
+          <button type="button" class="btn primary" id="saveEdit">Änderungen speichern</button>
+          <button type="button" class="btn" id="cancelEdit">Abbrechen</button>
+          <button type="button" class="btn danger" id="resetEdit">Original wiederherstellen</button>
+        </div>
+      </div>
+      <div id="editStatus" aria-live="polite"></div>
+    </div>
+    <div class="tool-section">
+      <h4>KI-Vorschläge importieren</h4>
+      <p class="hint">JSON aus unserem Chat einfügen oder eine .json-Datei auswählen. Vor dem Speichern siehst du Original und Vorschlag im Vergleich.</p>
+      <label for="aiInput">Anpassung als JSON</label>
+      <textarea id="aiInput" spellcheck="false" placeholder='{"version":1,"planId":"hyrox-frankfurt-2026","week":2,"changes":[{"day":"di","mainEdits":[{"index":1,"text":"4×1 km @ 4:15–4:20 min/km"}]}]}'></textarea>
+      <div class="button-row">
+        <button type="button" class="btn primary" id="previewAI">Vorschau anzeigen</button>
+        <label class="btn file-pick">📄 JSON-Datei auswählen<input type="file" id="aiFile" accept=".json,application/json"></label>
+      </div>
+      <div id="aiStatus" aria-live="polite"></div>
+      <div id="aiPreview" hidden></div>
+      <details style="margin-top:12px"><summary style="font-weight:500;font-size:12px;color:var(--muted)">Beispiel für KI-Anpassungen</summary>
+<pre class="example">{
+  "version": 1,
+  "planId": "hyrox-frankfurt-2026",
+  "week": 2,
+  "changes": [
+    {"day":"di","mainEdits":[{"index":1,"text":"4×1 km @ 4:15–4:20 min/km"}],"reason":"Weniger Intervallvolumen"},
+    {"day":"fr","duration":"40–45 min","mainEdits":[{"index":1,"text":"40–45 min locker in Z2"}]}
+  ]
+}</pre></details>
+    </div>
+    <div class="tool-section">
+      <h4>Datensicherung</h4>
+      <p class="hint">Protokolle und Anpassungen sind nur auf diesem Gerät in diesem Browser gespeichert. Vor dem Ersetzen der Datei und gelegentlich danach ein Backup sichern.</p>
+      <div class="button-row">
+        <button type="button" class="btn" id="exportBackup">Backup herunterladen</button>
+        <label class="btn file-pick">Backup wiederherstellen<input type="file" id="backupFile" accept=".json,application/json"></label>
+      </div>
+      <div id="backupStatus" aria-live="polite"></div>
+    </div>
+  </details>
 
   <div class="footer-note">
     Daten werden nur lokal in diesem Browser gespeichert. Sonntag bleibt optional und zählt nicht zur Wochenquote, ist aber als aerobe Grundlage empfohlen; der Race Day in Woche 10 ist separat markiert.
@@ -441,15 +536,40 @@ const weeks = [
 }
 ];
 
+// Gleicher Speicherschlüssel wie in den bisherigen Versionen: bestehende Logs bleiben erhalten.
 const STORAGE_KEY = "hyroxFrankfurt2026_v1";
-const state = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-if(!state.completed) state.completed = {};
-if(!state.logs) state.logs = {};
-if(!state.ui) state.ui = {};
-
+const PLAN_ID = "hyrox-frankfurt-2026";
+let state;
+try { state = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch (e) { state = {}; }
+if(!state || typeof state !== "object" || Array.isArray(state)) state = {};
+for(const field of ["completed", "logs", "ui", "overrides"]){
+  if(!state[field] || typeof state[field] !== "object" || Array.isArray(state[field])) state[field] = {};
+}
+const FIELDS = ["title","duration","warmup","main","note"];
 function key(w, d){ return `w${w}_${d}`; }
-function save(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
-
+function save(){
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+  catch(e){ window.alert("Konnte Daten nicht speichern. Bitte Browser-Speicher prüfen."); }
+}
+function originalDay(week,day){ return weeks[week-1]?.days.find(d=>d.id===day); }
+function currentDayData(week,day){
+  const original=originalDay(week,day);
+  if(!original) return null;
+  const over=state.overrides[key(week,day)] || {};
+  return {...original, ...Object.fromEntries(FIELDS.filter(f=>Object.prototype.hasOwnProperty.call(over,f)).map(f=>[f,over[f]]))};
+}
+function isModified(week,day){ return !!state.overrides[key(week,day)]; }
+function same(a,b){ return JSON.stringify(a)===JSON.stringify(b); }
+function buildOverride(original, revised, source, reason){
+  const difference={};
+  for(const f of FIELDS) if(!same(original[f]??(f==="note"?"":[]),revised[f]??(f==="note"?"":[]))) difference[f]=revised[f];
+  return Object.keys(difference).length ? {...difference,_source:source,_reason:reason||"",_updatedAt:new Date().toISOString()} : null;
+}
+function storeOverride(week,day,revised,source,reason){
+  const k=key(week,day), over=buildOverride(originalDay(week,day),revised,source,reason);
+  if(over) state.overrides[k]=over; else delete state.overrides[k];
+  save();
+}
 function autoWeek(){
   const now = new Date();
   const start = new Date("2026-10-05T00:00:00");
@@ -475,7 +595,7 @@ function renderWeeks(){
       const w = weeks[currentWeek-1];
       if(!w.days.some(d=>d.id===currentDay)) currentDay = w.days[0].id;
       state.ui.week=currentWeek; state.ui.day=currentDay; save();
-      renderAll();
+      closeEditor(); clearProposal(); renderAll();
     };
   });
 }
@@ -501,7 +621,8 @@ function renderDays(){
   const w=weeks[currentWeek-1];
   dayTabs.innerHTML=w.days.map(d=>{
     const done=!!state.completed[key(w.n,d.id)];
-    return `<button class="day-tab ${d.id===currentDay?'active':''} ${done?'done':''}" data-day="${d.id}">
+    const changed=isModified(w.n,d.id);
+    return `<button class="day-tab ${d.id===currentDay?'active':''} ${done?'done':''} ${changed?'modified':''}" data-day="${d.id}">
       ${d.label}${d.required?'':' · optional'}
     </button>`;
   }).join("");
@@ -509,13 +630,13 @@ function renderDays(){
     btn.onclick=()=>{
       currentDay=btn.dataset.day;
       state.ui.day=currentDay; save();
-      renderAll();
+      closeEditor(); clearProposal(); renderAll();
     };
   });
 }
 
 function esc(s=""){
-  return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+  return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 }
 function logField(k, field, placeholder, label, type="text"){
   const v=(state.logs[k]||{})[field]||"";
@@ -524,17 +645,17 @@ function logField(k, field, placeholder, label, type="text"){
 
 function renderContent(){
   const w=weeks[currentWeek-1];
-  const d=w.days.find(x=>x.id===currentDay) || w.days[0];
+  const d=currentDayData(w.n,currentDay) || currentDayData(w.n,w.days[0].id);
   currentDay=d.id;
   const k=key(w.n,d.id), done=!!state.completed[k], logs=state.logs[k]||{};
   const requiredLabel=d.required?"Pflicht":"Optional";
   const stepHtml = (x) => {
     const isSS = x.startsWith("Supersatz");
-    if(!isSS) return `<div class="step">${x}</div>`;
+    if(!isSS) return `<div class="step">${esc(x)}</div>`;
     const parts = x.split(":");
     const label = parts.shift();
     const body = parts.join(":").trim();
-    return `<div class="step superset"><span class="ss-badge">${label}</span>${body}</div>`;
+    return `<div class="step superset"><span class="ss-badge">${esc(label)}</span>${esc(body)}</div>`;
   };
   const warmup=(d.warmup||[]).map(stepHtml).join("");
   const main=(d.main||[]).map(stepHtml).join("");
@@ -564,10 +685,12 @@ function renderContent(){
     <section class="card">
       <div class="title-row">
         <div>
-          <h3>${d.title}</h3>
+          <h3>${esc(d.title)}</h3>
           <div class="meta">
             <span class="pill key">${requiredLabel}</span>
-            <span class="pill">${d.duration}</span>
+            <span class="pill">${esc(d.duration)}</span>
+            ${isModified(w.n,d.id)?`<span class="pill changed">✎ Angepasst</span>`:""}
+            <button type="button" class="btn sm" id="quickEdit">✎ Bearbeiten</button>
             <span class="pill">${d.type==="run"?"Laufen":d.type==="strength"?"Strength":d.type==="partner"?"Partner":"Event"}</span>
           </div>
         </div>
@@ -590,7 +713,8 @@ function renderContent(){
         <div class="steps">${main}</div>
       </div>
 
-      ${d.note?`<div class="note">${d.note}</div>`:""}
+      ${d.note?`<div class="note">${esc(d.note)}</div>`:""}
+      ${isModified(w.n,d.id)?`<div class="adjusted-line"><span class="hint">✎ Anpassung: ${esc(state.overrides[k]._source || "Manuell")}${state.overrides[k]._reason ? " · "+esc(state.overrides[k]._reason) : ""}</span><button type="button" class="btn sm" id="quickReset">Original wiederherstellen</button></div>`:""}
 
       <div class="section">
         <h4>Kurzes Logging <span class="optional">· optional</span></h4>
@@ -602,6 +726,9 @@ function renderContent(){
       </div>
     </section>`;
 
+  document.getElementById("quickEdit").onclick=openEditor;
+  const qr=document.getElementById("quickReset");
+  if(qr) qr.onclick=()=>resetDay(w.n,d.id);
   document.getElementById("completeBtn").onclick=()=>{
     state.completed[k]=!state.completed[k];
     save(); renderAll();
@@ -619,6 +746,191 @@ function renderContent(){
     save();
   };
 }
+
+
+// --- Plan-Anpassung: alle Änderungen sind additive Overrides, nie Änderungen an 'weeks'. ---
+const manualEditor=document.getElementById("manualEditor");
+const adjustments=document.getElementById("adjustments");
+let pendingProposal=null;
+function showStatus(where,msg,kind="ok"){
+  document.getElementById(where).innerHTML=msg?`<div class="status ${kind}">${esc(msg)}</div>`:"";
+}
+function closeEditor(){ manualEditor.hidden=true; showStatus("editStatus",""); }
+function clearProposal(){ pendingProposal=null;document.getElementById("aiPreview").hidden=true;document.getElementById("aiPreview").innerHTML="";showStatus("aiStatus",""); }
+function lines(value){ return String(value).split(/\r?\n/).map(s=>s.trim()).filter(Boolean); }
+function openEditor(){
+  const d=currentDayData(currentWeek,currentDay);
+  if(!d)return;
+  adjustments.open=true;manualEditor.hidden=false;
+  document.getElementById("editTitle").value=d.title;
+  document.getElementById("editDuration").value=d.duration;
+  document.getElementById("editWarmup").value=d.warmup.join("\n");
+  document.getElementById("editMain").value=d.main.join("\n");
+  document.getElementById("editNote").value=d.note||"";
+  document.getElementById("resetEdit").disabled=!isModified(currentWeek,currentDay);
+  showStatus("editStatus","");
+  manualEditor.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+function resetDay(week,day){
+  if(!isModified(week,day))return;
+  if(!window.confirm(`Woche ${week} · ${originalDay(week,day).label}: Anpassung zurücksetzen? Deine Trainingsprotokolle bleiben erhalten.`))return;
+  delete state.overrides[key(week,day)];save();closeEditor();clearProposal();renderAll();
+  showStatus("editStatus","Originalplan wiederhergestellt. Deine Logs bleiben erhalten.");
+}
+document.getElementById("openEditor").addEventListener("click",openEditor);
+document.getElementById("cancelEdit").addEventListener("click",closeEditor);
+document.getElementById("resetEdit").addEventListener("click",()=>resetDay(currentWeek,currentDay));
+document.getElementById("saveEdit").addEventListener("click",()=>{
+  const original=originalDay(currentWeek,currentDay);
+  const revised={...original,
+    title:document.getElementById("editTitle").value.trim(),
+    duration:document.getElementById("editDuration").value.trim(),
+    warmup:lines(document.getElementById("editWarmup").value),
+    main:lines(document.getElementById("editMain").value),
+    note:document.getElementById("editNote").value.trim()
+  };
+  try{
+    validateSession(revised);
+    storeOverride(currentWeek,currentDay,revised,"Manuell","");
+    closeEditor();clearProposal();renderAll();
+    showStatus("editStatus","Einheit gespeichert. Der Originalplan bleibt wiederherstellbar.");
+  }catch(e){showStatus("editStatus",e.message,"error");}
+});
+function validateSession(d){
+  for(const f of ["title","duration","note"]){
+    const v=(f==="note" && d[f]===undefined)?"":d[f];
+    if(typeof v!=="string" || v.length>2500) throw Error(`Ungültiges Feld: ${f}`);
+  }
+  if(!d.title.trim() || !d.duration.trim()) throw Error("Titel und Dauer dürfen nicht leer sein.");
+  for(const f of ["main","warmup"]){
+    if(!Array.isArray(d[f]) || d[f].length>60 || d[f].some(x=>typeof x!=="string" || !x.trim() || x.length>600))throw Error(`${f}: maximal 60 Textzeilen (je 600 Zeichen).`);
+  }
+  if(!d.main.length)throw Error("Der Trainingshauptteil darf nicht leer sein.");
+}
+const weekdays={mo:"mo",montag:"mo",monday:"mo",di:"di",dienstag:"di",tuesday:"di",do:"do",donnerstag:"do",thursday:"do",fr:"fr",freitag:"fr",friday:"fr",so:"so",sonntag:"so",sunday:"so"};
+function parseImport(value){
+  if(value.length>100000)throw Error("Datei zu groß (maximal 100 KB Text).");
+  let obj;
+  try {obj=JSON.parse(value);} catch(e){throw Error("JSON ist ungültig. Bitte vollständigen Codeblock kopieren (ohne ```).");}
+  if(!obj || typeof obj!=="object" || Array.isArray(obj))throw Error("Erwartet wird ein JSON-Objekt.");
+  if(obj.version!==1 || obj.planId!==PLAN_ID)throw Error('Nicht für diesen Trainingsplan: version muss 1 und planId "hyrox-frankfurt-2026" sein.');
+  if(!Array.isArray(obj.changes) || !obj.changes.length || obj.changes.length>40)throw Error("'changes' muss 1–40 Anpassungen enthalten.");
+  const allowed=new Set(["week","day","title","duration","note","warmup","main","mainEdits","warmupEdits","reason"]);
+  const proposed=[],seen=new Set();
+  for(const [i,c] of obj.changes.entries()){
+    if(!c || typeof c!=="object" || Array.isArray(c))throw Error(`Änderung ${i+1}: ungültiger Eintrag.`);
+    for(const f of Object.keys(c))if(!allowed.has(f))throw Error(`Änderung ${i+1}: unbekanntes Feld '${f}' – es wird nichts stillschweigend ignoriert.`);
+    const w=c.week??obj.week, d=weekdays[String(c.day||"").toLowerCase().trim()];
+    if(!Number.isInteger(w) || w<1 || w>10 || !d || !originalDay(w,d))throw Error(`Änderung ${i+1}: Woche/Trainingstag nicht vorhanden.`);
+    const k=key(w,d);
+    if(seen.has(k))throw Error(`${k} ist im Import doppelt vorhanden.`);
+    seen.add(k);
+    const before=currentDayData(w,d), after=structuredClone(before);
+    let found=false;
+    for(const f of FIELDS){
+      if(Object.prototype.hasOwnProperty.call(c,f)){
+        found=true;
+        after[f]=c[f];
+      }
+    }
+    for(const field of ["main","warmup"]){
+      const edits=c[field+"Edits"];
+      if(edits===undefined)continue;
+      found=true;
+      if(c[field]!==undefined)throw Error(`${k}: '${field}' und '${field}Edits' nicht gleichzeitig verwenden.`);
+      if(!Array.isArray(edits) || !edits.length || edits.length>40)throw Error(`${k}: ${field}Edits muss eine Liste enthalten.`);
+      const used=new Set();
+      for(const edit of edits){
+        if(!edit || !Number.isInteger(edit.index) || edit.index<1 || edit.index>after[field].length || typeof edit.text!=="string" || !edit.text.trim() || edit.text.length>600)throw Error(`${k}: Ungültige Zeilenänderung. index beginnt bei 1.`);
+        if(used.has(edit.index))throw Error(`${k}: Zeile ${edit.index} doppelt geändert.`);
+        used.add(edit.index);
+        if(edit.from!==undefined && edit.from!==after[field][edit.index-1])throw Error(`${k}: Zeile ${edit.index} entspricht nicht dem erwarteten Ausgangstext.`);
+        after[field][edit.index-1]=edit.text.trim();
+      }
+    }
+    if(!found)throw Error(`${k}: Keine änderbaren Felder angegeben.`);
+    validateSession(after);
+    if(c.reason!==undefined && (typeof c.reason!=="string" || c.reason.length>500))throw Error(`${k}: Grund ist zu lang/ungültig.`);
+    const changed=FIELDS.filter(f=>!same(before[f]??"",after[f]??""));
+    if(changed.length)proposed.push({week:w,day:d,before,after,changed,reason:c.reason||""});
+  }
+  if(!proposed.length)throw Error("Alle vorgeschlagenen Werte sind bereits im Plan eingetragen.");
+  return proposed;
+}
+function printable(v){ return Array.isArray(v)?v.map((x,i)=>`${i+1}. ${x}`).join("\n"):(v??"").toString(); }
+const fieldLabel={title:"Titel",duration:"Dauer",warmup:"Warm-up",main:"Training",note:"Hinweis"};
+function renderProposal(items){
+  let markup=`<div class="status ok">${items.length} geänderte Einheit(en) geprüft. Es wurde noch nichts gespeichert.</div>`;
+  for(const item of items){
+    const current=item.before;
+    markup+=`<div class="compare-card"><h5>Woche ${item.week} · ${esc(current.label)} · ${esc(current.title)}</h5>`;
+    if(item.reason)markup+=`<div class="hint">Begründung: ${esc(item.reason)}</div>`;
+    for(const f of item.changed){markup+=`<div class="compare-row"><div class="compare-title">${fieldLabel[f]}</div><div class="compare-grid"><div class="compare-col"><b>Bisher</b>${esc(printable(current[f]))}</div><div class="compare-col new"><b>Vorschlag</b>${esc(printable(item.after[f]))}</div></div></div>`;}
+    markup+="</div>";
+  }
+  markup+=`<div class="button-row"><button type="button" class="btn primary" id="applyImport">✓ Änderungen übernehmen</button><button type="button" class="btn" id="discardImport">Abbrechen</button></div>`;
+  const el=document.getElementById("aiPreview");el.innerHTML=markup;el.hidden=false;
+  document.getElementById("applyImport").addEventListener("click",applyImport);
+  document.getElementById("discardImport").addEventListener("click",clearProposal);
+  el.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+function previewImport(){
+  clearProposal();
+  try { pendingProposal=parseImport(document.getElementById("aiInput").value.trim());renderProposal(pendingProposal); }
+  catch(e){showStatus("aiStatus",e.message,"error");}
+}
+function applyImport(){
+  if(!pendingProposal)return;
+  // Validate against current data a second time before modifying anything.
+  for(const item of pendingProposal){
+    if(!same(item.before,currentDayData(item.week,item.day))){showStatus("aiStatus","Der Plan wurde seit der Vorschau verändert. Bitte eine neue Vorschau erstellen.","error");return;}
+  }
+  for(const item of pendingProposal)storeOverride(item.week,item.day,item.after,"KI-Import",item.reason);
+  const count=pendingProposal.length;
+  clearProposal();closeEditor();renderAll();
+  showStatus("aiStatus",`${count} Einheit(en) übernommen. Original und Trainingsprotokolle bleiben erhalten.`);
+}
+document.getElementById("previewAI").addEventListener("click",previewImport);
+document.getElementById("aiInput").addEventListener("input",()=>{if(pendingProposal)clearProposal();});
+document.getElementById("aiFile").addEventListener("change",async e=>{
+  const file=e.target.files?.[0];if(!file)return;
+  try { if(file.size>100000)throw Error("Datei zu groß (maximal 100 KB).");
+    document.getElementById("aiInput").value=await file.text();previewImport(); }
+  catch(err){clearProposal();showStatus("aiStatus",err.message,"error");}
+  e.target.value="";
+});
+function downloadJSON(name,obj){
+  const blob=new Blob([JSON.stringify(obj,null,2)],{type:"application/json;charset=utf-8"});
+  const url=URL.createObjectURL(blob), link=document.createElement("a");link.href=url;link.download=name;
+  document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
+}
+document.getElementById("exportBackup").addEventListener("click",()=>{
+  downloadJSON("hyrox-backup-"+new Date().toISOString().slice(0,10)+".json",{format:"hyrox-2026-backup",version:1,planId:PLAN_ID,exportedAt:new Date().toISOString(),state});
+  showStatus("backupStatus","Backup gespeichert. Bewahre die JSON-Datei an einem sicheren Ort auf.");
+});
+document.getElementById("backupFile").addEventListener("change",async e=>{
+  const file=e.target.files?.[0];if(!file)return;
+  try{
+    if(file.size>250000)throw Error("Backup zu groß (maximal 250 KB).");
+    const val=JSON.parse(await file.text());
+    if(val.format!=="hyrox-2026-backup" || val.version!==1 || val.planId!==PLAN_ID || !val.state || typeof val.state!=="object")throw Error("Das ist kein kompatibles HYROX-Backup.");
+    const imported=val.state;
+    for(const prop of ["completed","logs","ui","overrides"]){if(!imported[prop] || typeof imported[prop]!=="object" || Array.isArray(imported[prop]))throw Error("Backup enthält ungültige Daten: "+prop);}
+    for(const [k,v] of Object.entries(imported.overrides)){
+      const m=k.match(/^w(10|[1-9])_(mo|di|do|fr|so)$/);
+      if(!m || !originalDay(Number(m[1]),m[2]) || !v || typeof v!=="object" || Array.isArray(v))throw Error("Ungültige Einheit im Backup: "+k);
+      const test={...originalDay(Number(m[1]),m[2]),...Object.fromEntries(FIELDS.filter(f=>Object.prototype.hasOwnProperty.call(v,f)).map(f=>[f,v[f]]))};
+      validateSession(test);
+    }
+    if(!window.confirm("Backup wiederherstellen? Alle aktuell lokal gespeicherten Trainingsprotokolle und Anpassungen werden dadurch ersetzt."))return;
+    state=imported;save();
+    currentWeek=Number(state.ui.week)||autoWeek();if(currentWeek<1||currentWeek>10)currentWeek=autoWeek();
+    currentDay=originalDay(currentWeek,state.ui.day)?state.ui.day:"mo";
+    closeEditor();clearProposal();renderAll();
+    showStatus("backupStatus","Backup erfolgreich wiederhergestellt.");
+  }catch(err){showStatus("backupStatus","Import fehlgeschlagen: "+err.message,"error");}
+  finally{e.target.value="";}
+});
 
 function renderAll(){
   renderWeeks(); renderHeader(); renderDays(); renderContent();
